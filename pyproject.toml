@@ -1,16 +1,30 @@
 [project]
 name = "microlm"
 version = "0.1.0"
-description = "MicroLM codebase migrated from CS336 basics."
+description = "轻量级 LLM 训练、微调、评测与部署全链路项目"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "einops>=0.8.1",
     "numpy",
-    "pytest>=8.3.4",
     "regex>=2024.11.6",
     "torch",
     "wandb>=0.19.7",
+]
+
+[project.optional-dependencies]
+qwen = [
+    "transformers>=4.40",
+    "peft>=0.12",
+    "datasets>=2.18",
+    "requests>=2.31",
+]
+dev = [
+    "pytest>=8.3.4",
+]
+all = [
+    "microlm[qwen]",
+    "microlm[dev]",
 ]
 
 [build-system]
