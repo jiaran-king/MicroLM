@@ -5,7 +5,9 @@
 </p>
 
 <p align="center">
+<blockquote>
 从零搭建一个能训练、能微调、能推理的完整 LLM 链路——tokenizer 训练、语料处理、pretrain、SFT、LoRA、推理优化、评测、部署，每一个环节亲手实现。
+</blockquote>
 </p>
 
 
@@ -22,7 +24,7 @@
 ## 两线并行
 
 | | **自研 MicroLM 链路** | **Qwen 迁移与部署链路** |
-|:--|:--|:--|
+|:--:|:---:|:---:|
 | **规模** | 31.7M 参数 | 1.55B 参数 |
 | **技术栈** | 纯 PyTorch（einsum 自实现） | HF / PEFT / vLLM |
 | **数据源** | MiniMind ~141 万条 | InstructIE 171K 条 |
@@ -31,12 +33,8 @@
 
 ```mermaid
 flowchart TB
-    subgraph Root["同一套工程方法论"]
-        M1[配置驱动] --- M2[协议显式化] --- M3[Smoke First] --- M4[评测先行]
-    end
-
-    Root --> A["自研 MicroLM 链路<br/>31.7M · 纯 PyTorch"]
-    Root --> B["Qwen 迁移与部署链路<br/>1.55B · HF / PEFT / vLLM"]
+    A["自研 MicroLM 链路<br/>31.7M · 纯 PyTorch"]
+    B["Qwen 迁移与部署链路<br/>1.55B · HF / PEFT / vLLM"]
 
     A --> A1["MiniMind ~141万条"]
     A1 --> A2["清洗 + SHA1切分"]
@@ -53,7 +51,6 @@ flowchart TB
     B4 --> B5["结构化自动评测<br/>4模型 × 40prompt × 4指标"]
     B5 --> B6["vLLM 服务化部署<br/>smoke 5/5 · Parse% 100%"]
 
-    style Root fill:#e8f4f8,stroke:#2980b9,color:#2c3e50
     style A fill:#fef9e7,stroke:#f39c12,color:#2c3e50
     style B fill:#eafaf1,stroke:#27ae60,color:#2c3e50
     style A6 fill:#fdedec,stroke:#e74c3c,color:#2c3e50
@@ -67,7 +64,7 @@ flowchart TB
 ### 自研链路 — 31.7M 参数
 
 | 指标 | 数值 |
-|:-----|-----:|
+|:---:|:---:|
 | 模型架构 | 8 层 Transformer · RoPE + SwiGLU + RMSNorm pre-norm |
 | LoRA 可训练占比 | **0.83%**（262K / 31.7M） |
 | Adaptor 存储 | **1.0 MB**（vs 全参 377 MB，节省 **99.7%**） |
@@ -78,7 +75,7 @@ flowchart TB
 ### 迁移链路 — Qwen2.5-1.5B-Instruct
 
 | 指标 | 数值 |
-|:-----|-----:|
+|:---:|:---:|
 | 基座模型 | Qwen2.5-1.5B-Instruct（1.55B 参数） |
 | LoRA 可训练占比 | **0.14%**（2.18M / 1.55B） |
 | Adaptor 存储 | **8.3 MB**（vs 基座 2,944 MB，节省 **99.7%**） |
@@ -94,7 +91,7 @@ flowchart TB
 完整中文文档位于 [`Readme/`](Readme/) 目录：
 
 | 文档 | 内容 |
-|:-----|------|
+|:---:|:---:|
 | [01-项目总览](Readme/项目全景图/01-项目总览.md) | 双轨架构、里程碑完成情况、核心量化成果一览 |
 | [02-自研 MicroLM 主线](Readme/项目全景图/02-自研%20MicroLM%20主线.md) | 数据处理 / Tokenizer / 模型设计 / Pretrain / SFT / LoRA / 能力边界 |
 | [03-推理与系统能力增强](Readme/项目全景图/03-推理与系统能力增强.md) | 文本生成流程 / KV Cache 优化与 Benchmark / chat.py 多轮对话 |
@@ -156,7 +153,7 @@ pip install -e ".[all]"          # 推荐：包含全部依赖
 ```
 
 | 安装方式 | 命令 | 适用场景 |
-|:--------|:-----|:---------|
+|:---:|:---:|:---:|
 | 核心依赖 | `pip install -e .` | 仅自研链路（纯 PyTorch） |
 | +Qwen 链路 | `pip install -e ".[qwen]"` | +transformers, peft, datasets |
 | +开发测试 | `pip install -e ".[dev]"` | +pytest |
