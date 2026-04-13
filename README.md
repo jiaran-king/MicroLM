@@ -1,22 +1,25 @@
 # MicroLM
 
 <p align="center">
-  <strong>轻量级 LLM 训练、微调、评测与部署全链路项目</strong>
+  <sub><strong>轻量级 LLM 训练、微调、评测与部署全链路项目</strong></sub>
 </p>
 
 <p align="center">
-<blockquote>
-从零搭建一个能训练、能微调、能推理的完整 LLM 链路——tokenizer 训练、语料处理、pretrain、SFT、LoRA、推理优化、评测、部署，每一个环节亲手实现。
-</blockquote>
+  <h2 align="center">从零搭建一个能训练、能微调、能推理的<br>完整 LLM 链路</h2>
 </p>
 
+<p align="center">
+  tokenizer 训练 · 语料处理 · pretrain · SFT · LoRA<br>
+  推理优化 · 评测 · 部署，每一个环节亲手实现
+</p>
 
+<br>
 
 <p align="center">
-  <a href="#自研链路--31m-参数">自研链路</a> •
-  <a href="#迁移链路--qwen25-15b">Qwen 迁移</a> •
-  <a href="#快速开始">快速开始</a> •
-  <a href="#详细文档">文档</a>
+  <a href="#自研链路--31m-参数"><strong>自研链路</strong></a> &nbsp;·&nbsp;
+  <a href="#迁移链路--qwen25-15b"><strong>Qwen 迁移</strong></a> &nbsp;·&nbsp;
+  <a href="#快速开始"><strong>快速开始</strong></a> &nbsp;·&nbsp;
+  <a href="#详细文档"><strong>文档</strong></a>
 </p>
 
 ---
