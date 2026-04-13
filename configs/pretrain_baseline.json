@@ -1,0 +1,39 @@
+{
+  "name": "pretrain_baseline",
+  "description": "Main baseline config to stabilize before adding SFT, KV cache, or LoRA.",
+  "model": {
+    "vocab_size": 6400,
+    "context_length": 512,
+    "d_model": 512,
+    "num_layers": 8,
+    "num_heads": 8,
+    "d_ff": 1344,
+    "rope_theta": 1000000.0,
+    "use_rms_norm": true,
+    "norm_mode": "pre",
+    "ffn_type": "swiglu"
+  },
+  "optimizer": {
+    "lr": 0.0003,
+    "min_lr": 3e-05,
+    "warmup_iters": 1000,
+    "max_norm": 1.0,
+    "weight_decay": 0.1
+  },
+  "training": {
+    "batch_size": 32,
+    "max_iters": 20000,
+    "device": "cuda",
+    "seed": 42,
+    "out_dir": "outputs/pretrain_baseline"
+  },
+  "data": {
+    "train_data_path": "data/pretrain/tokenized/train_ids.npy",
+    "valid_data_path": "data/pretrain/tokenized/valid_ids.npy"
+  },
+  "logging": {
+    "wandb_project": "micro-lm",
+    "run_name": "pretrain_baseline"
+  }
+}
+

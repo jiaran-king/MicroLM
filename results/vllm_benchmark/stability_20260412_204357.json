@@ -1,0 +1,74 @@
+{
+  "check_config": {
+    "base_url": "http://localhost:8000",
+    "eval_file": "/mnt/d/课程仓库/课程仓库/micro_LM/eval/prompts_instructie.json",
+    "timestamp": "2026-04-12 20:43:57",
+    "rounds": 2
+  },
+  "rounds": [
+    {
+      "round": "Round 1: Normal Chat Completion",
+      "mode": "normal",
+      "total": 40,
+      "parse_rate": 1.0,
+      "strict_rate": 0.0,
+      "alias_strict_rate": 0.0,
+      "by_group": {
+        "extraction": {
+          "total": 18,
+          "parse_rate": 1.0,
+          "strict_rate": 0.0,
+          "alias_strict_rate": 0.0
+        },
+        "schema_constraint": {
+          "total": 12,
+          "parse_rate": 1.0,
+          "strict_rate": 0.0,
+          "alias_strict_rate": 0.0
+        },
+        "format_following": {
+          "total": 10,
+          "parse_rate": 1.0,
+          "strict_rate": 0.0,
+          "alias_strict_rate": 0.0
+        }
+      },
+      "avg_latency_s": 1.143
+    },
+    {
+      "round": "Round 2: Constrained (response_format=json_object)",
+      "mode": "constrained",
+      "total": 40,
+      "parse_rate": 1.0,
+      "strict_rate": 0.0,
+      "alias_strict_rate": 0.0,
+      "by_group": {
+        "extraction": {
+          "total": 18,
+          "parse_rate": 1.0,
+          "strict_rate": 0.0,
+          "alias_strict_rate": 0.0
+        },
+        "schema_constraint": {
+          "total": 12,
+          "parse_rate": 1.0,
+          "strict_rate": 0.0,
+          "alias_strict_rate": 0.0
+        },
+        "format_following": {
+          "total": 10,
+          "parse_rate": 1.0,
+          "strict_rate": 0.0,
+          "alias_strict_rate": 0.0
+        }
+      },
+      "avg_latency_s": 0.819
+    }
+  ],
+  "reference_6c_offline": {
+    "model": "qwen_lora",
+    "parse_rate": 0.975,
+    "strict_rate": 0.075,
+    "alias_strict_rate": 0.15
+  }
+}

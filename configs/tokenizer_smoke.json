@@ -1,0 +1,11 @@
+{
+  "name": "tokenizer_smoke",
+  "description": "Tiny tokenizer-training config used for smoke validation of the config-driven tokenizer pipeline.",
+  "input_path": "data/smoke/tokenizer_corpus.txt",
+  "output_dir": "outputs/tokenizer_smoke",
+  "vocab_size": 320,
+  "special_tokens": [
+    "<|endoftext|>"
+  ]
+}
+

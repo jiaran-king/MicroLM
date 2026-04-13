@@ -1,0 +1,21 @@
+{
+  "name": "tokenize_baseline",
+  "description": "Baseline tokenization config for the first real pretraining corpus encoding run.",
+  "tokenizer": {
+    "vocab_path": "outputs/tokenizer_baseline/vocab.json",
+    "merges_path": "outputs/tokenizer_baseline/merge.txt",
+    "special_tokens": [
+      "<|endoftext|>"
+    ]
+  },
+  "data": {
+    "train_path": "data/pretrain/train.txt",
+    "valid_path": "data/pretrain/valid.txt"
+  },
+  "output": {
+    "output_dir": "data/pretrain/tokenized",
+    "read_chunk_bytes": 4194304,
+    "token_batch_size": 1000000
+  }
+}
+

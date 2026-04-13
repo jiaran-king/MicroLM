@@ -1,0 +1,102 @@
+{
+  "description": "Fixed evaluation prompts for comparing pretrain / SFT baseline / LoRA SFT",
+  "generation_params": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "max_new_tokens": 128,
+    "seed": 42
+  },
+  "prompts": [
+    {
+      "id": "qa_01",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "中国的首都是哪里？"}
+      ]
+    },
+    {
+      "id": "qa_02",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "地球上最大的海洋是什么？"}
+      ]
+    },
+    {
+      "id": "qa_03",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "一年有多少天？闰年呢？"}
+      ]
+    },
+    {
+      "id": "expr_01",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "用三句话概括《西游记》的故事。"}
+      ]
+    },
+    {
+      "id": "expr_02",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "请简单解释什么是人工智能。"}
+      ]
+    },
+    {
+      "id": "expr_03",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "用一句话总结《三国演义》的主题。"}
+      ]
+    },
+    {
+      "id": "instr_01",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请列出三种水果的名称。"}
+      ]
+    },
+    {
+      "id": "instr_02",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请用JSON格式输出三个中国城市的名称。"}
+      ]
+    },
+    {
+      "id": "instr_03",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "把下面的句子翻译成英文：今天天气很好。"}
+      ]
+    },
+    {
+      "id": "multi_01",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "你好，请介绍一下你自己。"},
+        {"role": "assistant", "content": "你好！我是一个AI助手，可以回答各种问题。"},
+        {"role": "user", "content": "那你能做什么？"}
+      ]
+    },
+    {
+      "id": "multi_02",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "李白是哪个朝代的诗人？"},
+        {"role": "assistant", "content": "李白是唐朝著名的浪漫主义诗人，被誉为\"诗仙\"。"},
+        {"role": "user", "content": "他最有名的诗是哪首？"}
+      ]
+    },
+    {
+      "id": "cont_01",
+      "category": "续写",
+      "prompt_text": "春天的早晨，阳光洒在小村庄的屋顶上，"
+    },
+    {
+      "id": "cont_02",
+      "category": "续写",
+      "prompt_text": "从前有一座山，山上有一座庙，庙里有一个老和尚和一个小和尚。"
+    }
+  ]
+}

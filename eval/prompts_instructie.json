@@ -1,0 +1,671 @@
+{
+  "version": "1.0",
+  "description": "InstructIE 结构化能力专项评测集 — 3组×4指标",
+  "generation_params": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_new_tokens": 256,
+    "seed": 42
+  },
+  "prompts": [
+    {
+      "id": "ext_001",
+      "group": "extraction",
+      "difficulty": "easy",
+      "topic": "人物",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "出生地", "出生日期", "国籍", "职业", "死亡日期", "家庭成员", "成就", "雇主", "教育机构"],
+      "input": "鲁迅，原名周树人，1881年9月25日出生于浙江省绍兴府会稽县，是中国现代文学的奠基人之一，代表作品有《狂人日记》《阿Q正传》等。",
+      "gold_output": {"鲁迅": {"别名": "周树人", "出生地": "浙江省绍兴府会稽县", "出生日期": "1881年9月25日", "职业": ["作家", "文学家"], "成就": "中国现代文学的奠基人之一"}},
+      "schema_def": {
+        "required_fields": ["别名", "出生地", "出生日期"],
+        "allowed_fields": ["别名", "出生地", "出生日期", "国籍", "职业", "死亡日期", "家庭成员", "成就", "雇主", "教育机构"],
+        "types": {"别名": "string_or_list", "出生地": "string", "出生日期": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_002",
+      "group": "extraction",
+      "difficulty": "easy",
+      "topic": "地理地区",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["位于", "别名", "人口", "行政中心", "面积", "长度", "宽度", "海拔"],
+      "input": "西湖位于中国浙江省杭州市西湖区，面积约6.39平方公里，是中国著名的淡水湖泊，2011年被列入世界文化遗产。",
+      "gold_output": {"西湖": {"位于": "中国浙江省杭州市西湖区", "面积": "6.39平方公里"}},
+      "schema_def": {
+        "required_fields": ["位于", "面积"],
+        "allowed_fields": ["位于", "别名", "人口", "行政中心", "面积", "长度", "宽度", "海拔"],
+        "types": {"位于": "string_or_list", "面积": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_003",
+      "group": "extraction",
+      "difficulty": "easy",
+      "topic": "组织",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["位于", "别名", "子组织", "成立时间", "产品", "成员", "创办者", "解散时间"],
+      "input": "阿里巴巴集团由马云于1999年在浙江省杭州市创立，旗下拥有淘宝网、天猫、阿里云等多个业务板块。",
+      "gold_output": {"阿里巴巴集团": {"创办者": "马云", "成立时间": "1999年", "位于": "浙江省杭州市", "子组织": ["淘宝网", "天猫", "阿里云"]}},
+      "schema_def": {
+        "required_fields": ["创办者", "成立时间"],
+        "allowed_fields": ["位于", "别名", "子组织", "成立时间", "产品", "成员", "创办者", "解散时间"],
+        "types": {"创办者": "string", "成立时间": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_004",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "自然科学",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "组成", "生成物", "产地", "发现者或发明者", "名称由来", "用途"],
+      "input": "青霉素又称盘尼西林，是最早被发现并广泛使用的抗生素之一，由英国细菌学家亚历山大·弗莱明于1928年发现。青霉素主要用于治疗由革兰氏阳性菌引起的感染。",
+      "gold_output": {"青霉素": {"别名": "盘尼西林", "发现者或发明者": "亚历山大·弗莱明", "用途": "治疗由革兰氏阳性菌引起的感染"}},
+      "schema_def": {
+        "required_fields": ["别名", "发现者或发明者"],
+        "allowed_fields": ["别名", "组成", "生成物", "产地", "发现者或发明者", "名称由来", "用途"],
+        "types": {"别名": "string_or_list", "发现者或发明者": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_005",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "建筑",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["位于", "别名", "创建或成立时间", "高度", "面积", "建筑师", "建筑风格", "材料", "用途"],
+      "input": "埃菲尔铁塔位于法国巴黎战神广场，由工程师古斯塔夫·埃菲尔设计，1889年建成，塔高324米，是法国文化象征之一，每年吸引近700万游客参观。",
+      "gold_output": {"埃菲尔铁塔": {"位于": "法国巴黎战神广场", "建筑师": "古斯塔夫·埃菲尔", "创建或成立时间": "1889年", "高度": "324米"}},
+      "schema_def": {
+        "required_fields": ["位于", "建筑师"],
+        "allowed_fields": ["位于", "别名", "创建或成立时间", "高度", "面积", "建筑师", "建筑风格", "材料", "用途"],
+        "types": {"位于": "string", "建筑师": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_006",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "事件",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["参与者", "发生地点", "发生时间", "别名", "赞助者", "伤亡人数", "起因", "导致", "主办方", "所获奖项", "获胜者"],
+      "input": "2008年北京夏季奥林匹克运动会于2008年8月8日至8月24日在中国北京举行，是中国首次举办夏季奥运会，共有204个国家和地区参与。本届奥运会吉祥物为福娃。",
+      "gold_output": {"2008年北京夏季奥林匹克运动会": {"发生地点": "中国北京", "发生时间": "2008年8月8日至8月24日", "参与者": "204个国家和地区"}},
+      "schema_def": {
+        "required_fields": ["发生地点", "发生时间"],
+        "allowed_fields": ["参与者", "发生地点", "发生时间", "别名", "赞助者", "伤亡人数", "起因", "导致", "主办方", "所获奖项", "获胜者"],
+        "types": {"发生地点": "string", "发生时间": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_007",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "医学",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "病因", "症状", "治疗方法", "预防方法", "发病部位", "常见并发症", "所属科室"],
+      "input": "糖尿病是一种以高血糖为特征的代谢性疾病，主要症状包括多饮、多尿、多食和体重下降。长期高血糖可导致心血管疾病、视网膜病变等并发症。治疗以胰岛素注射和口服降糖药为主。",
+      "gold_output": {"糖尿病": {"症状": ["多饮", "多尿", "多食", "体重下降"], "常见并发症": ["心血管疾病", "视网膜病变"], "治疗方法": ["胰岛素注射", "口服降糖药"]}},
+      "schema_def": {
+        "required_fields": ["症状"],
+        "allowed_fields": ["别名", "病因", "症状", "治疗方法", "预防方法", "发病部位", "常见并发症", "所属科室"],
+        "types": {"症状": "string_or_list", "治疗方法": "string_or_list"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_008",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "运输",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["位于", "成立或创建时间", "线路", "开通时间", "途经", "面积", "别名", "长度", "宽度", "车站等级"],
+      "input": "上海虹桥站位于上海市闵行区，是中国铁路上海局集团有限公司管辖的铁路车站，也是上海虹桥综合交通枢纽的重要组成部分，于2010年7月1日正式启用。",
+      "gold_output": {"上海虹桥站": {"位于": "上海市闵行区", "开通时间": "2010年7月1日"}},
+      "schema_def": {
+        "required_fields": ["位于"],
+        "allowed_fields": ["位于", "成立或创建时间", "线路", "开通时间", "途经", "面积", "别名", "长度", "宽度", "车站等级"],
+        "types": {"位于": "string", "开通时间": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_009",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "人造物件",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "长度", "宽度", "品牌", "材料", "产地", "制造商", "发现者或发明者"],
+      "input": "宝剑是古代兵器之一，多由铁或钢锻造而成。著名的越王勾践剑于1965年在湖北省江陵县出土，全长55.7厘米，宽4.6厘米，是中国一级文物。",
+      "gold_output": {"越王勾践剑": {"材料": ["铁", "钢"], "长度": "55.7厘米", "宽度": "4.6厘米", "产地": "湖北省江陵县"}},
+      "schema_def": {
+        "required_fields": ["材料"],
+        "allowed_fields": ["别名", "长度", "宽度", "品牌", "材料", "产地", "制造商", "发现者或发明者"],
+        "types": {"材料": "string_or_list", "长度": "string", "宽度": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_010",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "作品",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["作者", "出版时间", "别名", "产地", "改编自", "演员", "出版商", "成就", "表演者", "导演", "制片人", "编剧", "曲目", "作曲者", "开发者", "作词者", "制作商", "票房", "时长", "平台"],
+      "input": "《三体》是中国科幻作家刘慈欣创作的长篇科幻小说，由重庆出版社于2008年1月首次出版。该小说于2015年获得雨果奖最佳长篇小说奖，是亚洲作家首次获得该奖项。",
+      "gold_output": {"三体": {"作者": "刘慈欣", "出版时间": "2008年1月", "出版商": "重庆出版社", "成就": "雨果奖最佳长篇小说奖", "产地": "中国"}},
+      "schema_def": {
+        "required_fields": ["作者", "出版时间"],
+        "allowed_fields": ["作者", "出版时间", "别名", "产地", "改编自", "演员", "出版商", "成就", "表演者", "导演", "制片人", "编剧", "曲目", "作曲者", "开发者", "作词者", "制作商", "票房", "时长", "平台"],
+        "types": {"作者": "string", "出版时间": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_011",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "生物",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "分布", "学名", "产地", "分类位置", "用途", "特征", "毒性", "保护级别"],
+      "input": "大熊猫是中国特有的珍稀动物，主要分布在四川、陕西和甘肃的山区。大熊猫的学名是Ailuropoda melanoleuca，以竹子为主食，属于国家一级保护动物。",
+      "gold_output": {"大熊猫": {"分布": ["四川", "陕西", "甘肃"], "学名": "Ailuropoda melanoleuca", "产地": "中国", "保护级别": "国家一级保护动物"}},
+      "schema_def": {
+        "required_fields": ["分布", "学名"],
+        "allowed_fields": ["别名", "分布", "学名", "产地", "分类位置", "用途", "特征", "毒性", "保护级别"],
+        "types": {"分布": "string_or_list", "学名": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_012",
+      "group": "extraction",
+      "difficulty": "medium",
+      "topic": "天文对象",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "属于", "直径", "发现日期", "发现者", "距地距离", "名称由来", "绝对星等", "表面温度"],
+      "input": "木星是太阳系中最大的行星，直径约142984千米，距太阳约7.78亿千米。木星最早在古代就被人类观测到，其名称来源于罗马神话中的众神之王朱庇特。",
+      "gold_output": {"木星": {"属于": "太阳系", "直径": "142984千米", "名称由来": "罗马神话中的众神之王朱庇特"}},
+      "schema_def": {
+        "required_fields": ["属于", "直径"],
+        "allowed_fields": ["别名", "属于", "直径", "发现日期", "发现者", "距地距离", "名称由来", "绝对星等", "表面温度"],
+        "types": {"属于": "string", "直径": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_013",
+      "group": "extraction",
+      "difficulty": "hard",
+      "topic": "人物",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "出生地", "出生日期", "国籍", "职业", "死亡日期", "家庭成员", "成就", "雇主", "教育机构"],
+      "input": "阿尔伯特·爱因斯坦于1879年3月14日出生于德国乌尔姆，是著名的理论物理学家。他于1905年发表狭义相对论，1915年发表广义相对论，1921年获得诺贝尔物理学奖。爱因斯坦曾在瑞士伯尔尼专利局工作，后任普林斯顿高等研究院教授。他的第一任妻子是米列娃·马里奇。",
+      "gold_output": {"阿尔伯特·爱因斯坦": {"出生地": "德国乌尔姆", "出生日期": "1879年3月14日", "职业": "理论物理学家", "成就": ["狭义相对论", "广义相对论", "诺贝尔物理学奖"], "雇主": ["瑞士伯尔尼专利局", "普林斯顿高等研究院"], "教育机构": "苏黎世联邦理工学院", "家庭成员": "米列娃·马里奇"}},
+      "schema_def": {
+        "required_fields": ["出生地", "出生日期", "职业"],
+        "allowed_fields": ["别名", "出生地", "出生日期", "国籍", "职业", "死亡日期", "家庭成员", "成就", "雇主", "教育机构"],
+        "types": {"出生地": "string", "出生日期": "string", "职业": "string_or_list"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_014",
+      "group": "extraction",
+      "difficulty": "hard",
+      "topic": "事件",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["参与者", "发生地点", "发生时间", "别名", "赞助者", "伤亡人数", "起因", "导致", "主办方", "所获奖项", "获胜者"],
+      "input": "第二次世界大战是一场涉及全球大部分国家的战争，从1939年9月1日持续至1945年9月2日。战争由纳粹德国入侵波兰引发，以同盟国胜利告终。战争期间造成约7000至8500万人死亡，是人类历史上规模最大的战争。主要参战方包括同盟国（美国、苏联、英国、中国等）和轴心国（德国、日本、意大利）。",
+      "gold_output": {"第二次世界大战": {"发生时间": "1939年9月1日至1945年9月2日", "起因": "纳粹德国入侵波兰", "导致": "同盟国胜利", "伤亡人数": "约7000至8500万人", "参与者": ["同盟国", "轴心国"]}},
+      "schema_def": {
+        "required_fields": ["发生时间", "起因"],
+        "allowed_fields": ["参与者", "发生地点", "发生时间", "别名", "赞助者", "伤亡人数", "起因", "导致", "主办方", "所获奖项", "获胜者"],
+        "types": {"发生时间": "string", "起因": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_015",
+      "group": "extraction",
+      "difficulty": "hard",
+      "topic": "组织",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["位于", "别名", "子组织", "成立时间", "产品", "成员", "创办者", "解散时间"],
+      "input": "联合国是一个由主权国家组成的政府间国际组织，于1945年10月24日在美国纽约成立。联合国目前有193个会员国，其主要机构包括联合国大会、安全理事会、经济及社会理事会、国际法院和秘书处。现任秘书长是安东尼奥·古特雷斯。",
+      "gold_output": {"联合国": {"位于": "美国纽约", "成立时间": "1945年10月24日", "子组织": ["联合国大会", "安全理事会", "经济及社会理事会", "国际法院", "秘书处"], "成员": "193个会员国"}},
+      "schema_def": {
+        "required_fields": ["位于", "成立时间"],
+        "allowed_fields": ["位于", "别名", "子组织", "成立时间", "产品", "成员", "创办者", "解散时间"],
+        "types": {"位于": "string", "成立时间": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_016",
+      "group": "extraction",
+      "difficulty": "hard",
+      "topic": "作品",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["作者", "出版时间", "别名", "产地", "改编自", "演员", "出版商", "成就", "表演者", "导演", "制片人", "编剧", "曲目", "作曲者", "开发者", "作词者", "制作商", "票房", "时长", "平台"],
+      "input": "《哈利·波特》系列小说由英国作家J.K.罗琳创作，第一部《哈利·波特与魔法石》由英国布鲁姆斯伯里出版社于1997年出版。该系列被改编为8部电影，由丹尼尔·雷德克里夫主演，全球票房超过77亿美元。华纳兄弟影业负责电影制作。",
+      "gold_output": {"哈利·波特": {"作者": "J.K.罗琳", "出版时间": "1997年", "产地": "英国", "出版商": "布鲁姆斯伯里出版社", "改编自": "小说", "成就": "全球票房超过77亿美元"}, "哈利·波特与魔法石": {"出版时间": "1997年", "出版商": "布鲁姆斯伯里出版社"}},
+      "schema_def": {
+        "required_fields": ["作者"],
+        "allowed_fields": ["作者", "出版时间", "别名", "产地", "改编自", "演员", "出版商", "成就", "表演者", "导演", "制片人", "编剧", "曲目", "作曲者", "开发者", "作词者", "制作商", "票房", "时长", "平台"],
+        "types": {"作者": "string", "出版时间": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_017",
+      "group": "extraction",
+      "difficulty": "hard",
+      "topic": "自然科学",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["别名", "组成", "生成物", "产地", "发现者或发明者", "名称由来", "用途"],
+      "input": "黑火药是中国古代四大发明之一，由硝石、硫磺和木炭按一定比例混合而成。唐朝炼丹家在炼制丹药过程中偶然发现，后广泛应用于军事和民用。黑火药传入欧洲后，被用于制造火炮和烟花。其别名有火药、有烟火药。",
+      "gold_output": {"黑火药": {"别名": ["火药", "有烟火药"], "组成": ["硝石", "硫磺", "木炭"], "发现者或发明者": "唐朝炼丹家", "用途": ["军事", "民用", "制造火炮", "烟花"], "产地": "中国"}},
+      "schema_def": {
+        "required_fields": ["组成", "发现者或发明者"],
+        "allowed_fields": ["别名", "组成", "生成物", "产地", "发现者或发明者", "名称由来", "用途"],
+        "types": {"组成": "string_or_list", "发现者或发明者": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ext_018",
+      "group": "extraction",
+      "difficulty": "hard",
+      "topic": "地理地区",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。",
+      "schema": ["位于", "别名", "人口", "行政中心", "面积", "长度", "宽度", "海拔"],
+      "input": "长江是亚洲第一长河，全长约6300千米，发源于青藏高原唐古拉山脉，自西向东流经青海、西藏、四川、云南、重庆、湖北、湖南、江西、安徽、江苏、上海共11个省级行政区，最终注入东海。长江流域面积约180万平方公里，人口约4亿。",
+      "gold_output": {"长江": {"长度": "约6300千米", "位于": "中国", "面积": "约180万平方公里"}},
+      "schema_def": {
+        "required_fields": ["长度"],
+        "allowed_fields": ["位于", "别名", "人口", "行政中心", "面积", "长度", "宽度", "海拔"],
+        "types": {"长度": "string", "面积": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+
+    {
+      "id": "sc_001",
+      "group": "schema_constraint",
+      "difficulty": "easy",
+      "topic": "人物",
+      "instruction": "你是一个信息抽取助手。请根据给定的 schema 从文本中抽取信息，并以 JSON 格式输出。只输出 JSON，不要附加任何解释文字。",
+      "schema": ["出生地", "出生日期", "国籍"],
+      "input": "姚明于1980年9月12日出生于上海市，前中国职业篮球运动员，曾效力于NBA休斯顿火箭队。",
+      "gold_output": {"姚明": {"出生地": "上海市", "出生日期": "1980年9月12日", "国籍": "中国"}},
+      "schema_def": {
+        "required_fields": ["出生地", "出生日期", "国籍"],
+        "allowed_fields": ["出生地", "出生日期", "国籍"],
+        "types": {"出生地": "string", "出生日期": "string", "国籍": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "max_fields": 3}
+    },
+    {
+      "id": "sc_002",
+      "group": "schema_constraint",
+      "difficulty": "easy",
+      "topic": "组织",
+      "instruction": "你是一个信息抽取助手。请严格只输出以下 schema 中定义的字段，不要输出任何额外字段。输出合法 JSON。",
+      "schema": ["位于", "成立时间", "创办者"],
+      "input": "腾讯公司由马化腾于1998年在广东省深圳市南山区创立，是中国最大的互联网公司之一，旗下产品包括微信、QQ等。腾讯现任CEO为马化腾。",
+      "gold_output": {"腾讯公司": {"位于": "广东省深圳市南山区", "成立时间": "1998年", "创办者": "马化腾"}},
+      "schema_def": {
+        "required_fields": ["位于", "成立时间", "创办者"],
+        "allowed_fields": ["位于", "成立时间", "创办者"],
+        "types": {"位于": "string", "成立时间": "string", "创办者": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "max_fields": 3}
+    },
+    {
+      "id": "sc_003",
+      "group": "schema_constraint",
+      "difficulty": "medium",
+      "topic": "建筑",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息并输出 JSON。注意：用途字段只能从 [\"住宅\", \"商业\", \"宗教\", \"军事\", \"文化\", \"交通\", \"教育\"] 中选取。",
+      "schema": ["位于", "创建或成立时间", "高度", "用途"],
+      "input": "巴黎圣母院位于法国巴黎西岱岛上，始建于1163年，塔高约96米。它是一座哥特式天主教大教堂，是巴黎最具代表性的地标建筑之一。",
+      "gold_output": {"巴黎圣母院": {"位于": "法国巴黎西岱岛", "创建或成立时间": "1163年", "高度": "约96米", "用途": "宗教"}},
+      "schema_def": {
+        "required_fields": ["位于", "用途"],
+        "allowed_fields": ["位于", "创建或成立时间", "高度", "用途"],
+        "types": {"位于": "string", "用途": "string"},
+        "enum_constraints": {"用途": ["住宅", "商业", "宗教", "军事", "文化", "交通", "教育"]}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "sc_004",
+      "group": "schema_constraint",
+      "difficulty": "medium",
+      "topic": "医学",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息并输出 JSON。注意：所属科室字段只能从 [\"内科\", \"外科\", \"儿科\", \"妇产科\", \"眼科\", \"皮肤科\", \"骨科\", \"神经科\"] 中选取。",
+      "schema": ["别名", "症状", "治疗方法", "所属科室"],
+      "input": "肺炎是一种常见的呼吸系统疾病，症状包括咳嗽、发热、呼吸困难。治疗主要使用抗生素，严重时需要住院治疗。",
+      "gold_output": {"肺炎": {"症状": ["咳嗽", "发热", "呼吸困难"], "治疗方法": "抗生素", "所属科室": "内科"}},
+      "schema_def": {
+        "required_fields": ["症状", "所属科室"],
+        "allowed_fields": ["别名", "症状", "治疗方法", "所属科室"],
+        "types": {"症状": "string_or_list", "所属科室": "string"},
+        "enum_constraints": {"所属科室": ["内科", "外科", "儿科", "妇产科", "眼科", "皮肤科", "骨科", "神经科"]}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "sc_005",
+      "group": "schema_constraint",
+      "difficulty": "medium",
+      "topic": "事件",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息。只输出 schema 中定义的字段，缺失的字段不要编造。输出合法 JSON。",
+      "schema": ["发生地点", "发生时间", "参与者"],
+      "input": "1969年7月20日，阿波罗11号任务成功将宇航员送上月球。尼尔·阿姆斯特朗成为第一个踏上月球表面的人，并说出了那句名言：这是个人的一小步，却是人类的一大步。",
+      "gold_output": {"阿波罗11号登月": {"发生时间": "1969年7月20日", "发生地点": "月球", "参与者": "尼尔·阿姆斯特朗"}},
+      "schema_def": {
+        "required_fields": ["发生时间", "发生地点"],
+        "allowed_fields": ["发生地点", "发生时间", "参与者"],
+        "types": {"发生时间": "string", "发生地点": "string", "参与者": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "no_invention": true}
+    },
+    {
+      "id": "sc_006",
+      "group": "schema_constraint",
+      "difficulty": "medium",
+      "topic": "自然科学",
+      "instruction": "你是一个信息抽取助手。请严格按 schema 抽取。注意：只能输出以下字段中的信息，不要添加任何不在 schema 中的字段。输出合法 JSON。",
+      "schema": ["别名", "发现者或发明者", "用途"],
+      "input": "X射线由德国物理学家威廉·伦琴于1895年发现，又称伦琴射线。X射线广泛应用于医学影像诊断、工业无损检测和安全检查等领域。其波长范围在0.01至10纳米之间。",
+      "gold_output": {"X射线": {"别名": "伦琴射线", "发现者或发明者": "威廉·伦琴", "用途": ["医学影像诊断", "工业无损检测", "安全检查"]}},
+      "schema_def": {
+        "required_fields": ["别名", "发现者或发明者"],
+        "allowed_fields": ["别名", "发现者或发明者", "用途"],
+        "types": {"别名": "string_or_list", "发现者或发明者": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "sc_007",
+      "group": "schema_constraint",
+      "difficulty": "hard",
+      "topic": "运输",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息并输出 JSON。要求：1) 只输出 schema 中定义的字段；2) 车站等级只能从 [\"特等站\", \"一等站\", \"二等站\", \"三等站\", \"四等站\", \"五等站\"] 中选取；3) 不要编造文本中未提及的信息。",
+      "schema": ["位于", "线路", "开通时间", "车站等级"],
+      "input": "北京南站位于北京市丰台区，是中国铁路北京局集团有限公司管辖的特等站。北京南站是京沪高速铁路、京津城际铁路等重要线路的始发站，于2008年8月1日正式投入运营。",
+      "gold_output": {"北京南站": {"位于": "北京市丰台区", "线路": ["京沪高速铁路", "京津城际铁路"], "开通时间": "2008年8月1日", "车站等级": "特等站"}},
+      "schema_def": {
+        "required_fields": ["位于", "车站等级"],
+        "allowed_fields": ["位于", "线路", "开通时间", "车站等级"],
+        "types": {"位于": "string", "车站等级": "string"},
+        "enum_constraints": {"车站等级": ["特等站", "一等站", "二等站", "三等站", "四等站", "五等站"]}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "no_invention": true}
+    },
+    {
+      "id": "sc_008",
+      "group": "schema_constraint",
+      "difficulty": "hard",
+      "topic": "生物",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息。只输出 schema 中定义的字段。保护级别只能从 [\"国家一级保护动物\", \"国家二级保护动物\", \"无危\", \"易危\", \"濒危\", \"极危\"] 中选取。输出合法 JSON。",
+      "schema": ["分布", "学名", "保护级别", "用途"],
+      "input": "华南虎是中国特有的虎亚种，学名Panthera tigris amoyensis，野外已经基本灭绝，目前仅存于动物园中。曾分布于华南、华东、华中等地区。华南虎是国家一级保护动物。",
+      "gold_output": {"华南虎": {"分布": ["华南", "华东", "华中"], "学名": "Panthera tigris amoyensis", "保护级别": "国家一级保护动物"}},
+      "schema_def": {
+        "required_fields": ["学名", "保护级别"],
+        "allowed_fields": ["分布", "学名", "保护级别", "用途"],
+        "types": {"学名": "string", "保护级别": "string"},
+        "enum_constraints": {"保护级别": ["国家一级保护动物", "国家二级保护动物", "无危", "易危", "濒危", "极危"]}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "sc_009",
+      "group": "schema_constraint",
+      "difficulty": "hard",
+      "topic": "作品",
+      "instruction": "你是一个信息抽取助手。请严格按 schema 抽取信息。只输出 schema 定义的字段，不要添加额外内容。输出合法 JSON。",
+      "schema": ["作者", "出版时间", "成就"],
+      "input": "《百年孤独》是哥伦比亚作家加西亚·马尔克斯的代表作，于1967年首次出版。这部小说被认为是魔幻现实主义文学的巅峰之作，马尔克斯因此于1982年获得诺贝尔文学奖。小说讲述了布恩迪亚家族七代人的故事。",
+      "gold_output": {"百年孤独": {"作者": "加西亚·马尔克斯", "出版时间": "1967年", "成就": "魔幻现实主义文学的巅峰之作"}},
+      "schema_def": {
+        "required_fields": ["作者", "出版时间"],
+        "allowed_fields": ["作者", "出版时间", "成就"],
+        "types": {"作者": "string", "出版时间": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "max_fields": 3}
+    },
+    {
+      "id": "sc_010",
+      "group": "schema_constraint",
+      "difficulty": "easy",
+      "topic": "天文对象",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息并输出 JSON。只输出 schema 中定义的字段，不要附加解释。",
+      "schema": ["属于", "直径", "表面温度"],
+      "input": "火星是太阳系中第四颗行星，直径约6779千米，表面平均温度约为-63℃。",
+      "gold_output": {"火星": {"属于": "太阳系", "直径": "约6779千米", "表面温度": "约-63℃"}},
+      "schema_def": {
+        "required_fields": ["属于", "直径"],
+        "allowed_fields": ["属于", "直径", "表面温度"],
+        "types": {"属于": "string", "直径": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "sc_011",
+      "group": "schema_constraint",
+      "difficulty": "medium",
+      "topic": "人造物件",
+      "instruction": "你是一个信息抽取助手。请根据 schema 抽取信息。注意：材料字段只能从 [\"金属\", \"木材\", \"石材\", \"陶瓷\", \"塑料\", \"玻璃\", \"橡胶\", \"纤维\"] 中选取。输出合法 JSON。",
+      "schema": ["别名", "材料", "产地", "用途"],
+      "input": "司南是中国古代的指南针原型，由天然磁石制成，用于辨别方向。司南被认为是指南针的最早形式。",
+      "gold_output": {"司南": {"别名": "指南针原型", "材料": "石材", "用途": "辨别方向", "产地": "中国"}},
+      "schema_def": {
+        "required_fields": ["材料", "用途"],
+        "allowed_fields": ["别名", "材料", "产地", "用途"],
+        "types": {"材料": "string", "用途": "string"},
+        "enum_constraints": {"材料": ["金属", "木材", "石材", "陶瓷", "塑料", "玻璃", "橡胶", "纤维"]}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "sc_012",
+      "group": "schema_constraint",
+      "difficulty": "hard",
+      "topic": "地理地区",
+      "instruction": "你是一个信息抽取助手。请严格按 schema 抽取。只输出 schema 字段，不要编造文本中没有的信息。输出合法 JSON。",
+      "schema": ["位于", "面积", "海拔"],
+      "input": "死海位于以色列、约旦和巴勒斯坦交界处，水面海拔约-430米，是地球表面的最低点。死海面积约810平方公里，近年来因蒸发和取水面积持续缩小。",
+      "gold_output": {"死海": {"位于": ["以色列", "约旦", "巴勒斯坦"], "面积": "约810平方公里", "海拔": "约-430米"}},
+      "schema_def": {
+        "required_fields": ["位于", "面积"],
+        "allowed_fields": ["位于", "面积", "海拔"],
+        "types": {"位于": "string_or_list", "面积": "string"},
+        "enum_constraints": {}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "no_invention": true}
+    },
+
+    {
+      "id": "ff_001",
+      "group": "format_following",
+      "difficulty": "easy",
+      "topic": "人物",
+      "instruction": "请从文本中抽取人物信息并输出 JSON。只输出 JSON，不要附加任何解释文字。",
+      "schema": ["出生地", "出生日期", "职业"],
+      "input": "李白，字太白，701年出生于碎叶城，是唐代著名的浪漫主义诗人，被后人誉为诗仙。",
+      "gold_output": {"李白": {"出生地": "碎叶城", "出生日期": "701年", "职业": "诗人"}},
+      "schema_def": {
+        "required_fields": ["出生地", "出生日期", "职业"],
+        "allowed_fields": ["出生地", "出生日期", "职业"],
+        "types": {"出生地": "string", "出生日期": "string", "职业": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_002",
+      "group": "format_following",
+      "difficulty": "easy",
+      "topic": "地理地区",
+      "instruction": "请从文本中抽取地理信息。要求：输出必须为合法 JSON，不要输出 JSON 以外的任何内容。",
+      "schema": ["位于", "面积"],
+      "input": "鄱阳湖位于江西省北部，面积约3150平方公里，是中国最大的淡水湖。",
+      "gold_output": {"鄱阳湖": {"位于": "江西省北部", "面积": "约3150平方公里"}},
+      "schema_def": {
+        "required_fields": ["位于", "面积"],
+        "allowed_fields": ["位于", "面积"],
+        "types": {"位于": "string", "面积": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_003",
+      "group": "format_following",
+      "difficulty": "easy",
+      "topic": "组织",
+      "instruction": "只输出 JSON，不要附加任何解释文字。\n从文本中抽取信息并输出 JSON: ",
+      "schema": ["位于", "成立时间", "创办者"],
+      "input": "华为技术有限公司由任正非于1987年在广东省深圳市创立，是全球领先的信息与通信技术解决方案供应商。",
+      "gold_output": {"华为技术有限公司": {"位于": "广东省深圳市", "成立时间": "1987年", "创办者": "任正非"}},
+      "schema_def": {
+        "required_fields": ["位于", "成立时间", "创办者"],
+        "allowed_fields": ["位于", "成立时间", "创办者"],
+        "types": {"位于": "string", "成立时间": "string", "创办者": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_004",
+      "group": "format_following",
+      "difficulty": "medium",
+      "topic": "自然科学",
+      "instruction": "请从文本中抽取科学发现信息并输出 JSON。要求：1) 输出必须为合法 JSON；2) 字段名必须使用中文；3) 不要附加任何解释。",
+      "schema": ["别名", "发现者或发明者", "用途"],
+      "input": "DNA双螺旋结构由沃森和克里克于1953年发现，这一发现被认为是20世纪最重要的科学突破之一，为现代分子生物学奠定了基础。",
+      "gold_output": {"DNA双螺旋结构": {"发现者或发明者": ["沃森", "克里克"], "用途": "现代分子生物学基础"}},
+      "schema_def": {
+        "required_fields": ["发现者或发明者"],
+        "allowed_fields": ["别名", "发现者或发明者", "用途"],
+        "types": {"发现者或发明者": "string_or_list"},
+        "must_use_chinese_fields": true
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_005",
+      "group": "format_following",
+      "difficulty": "medium",
+      "topic": "事件",
+      "instruction": "从文本中抽取事件信息。输出格式：合法 JSON。禁止附加解释文字、注释或 markdown 格式标记。",
+      "schema": ["发生地点", "发生时间", "起因"],
+      "input": "2008年汶川地震发生在四川省汶川县，发生于2008年5月12日，震级为里氏8.0级。地震由印度板块向亚洲板块俯冲造成。",
+      "gold_output": {"汶川地震": {"发生地点": "四川省汶川县", "发生时间": "2008年5月12日", "起因": "印度板块向亚洲板块俯冲"}},
+      "schema_def": {
+        "required_fields": ["发生地点", "发生时间", "起因"],
+        "allowed_fields": ["发生地点", "发生时间", "起因"],
+        "types": {"发生地点": "string", "发生时间": "string", "起因": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "no_markdown": true}
+    },
+    {
+      "id": "ff_006",
+      "group": "format_following",
+      "difficulty": "medium",
+      "topic": "建筑",
+      "instruction": "请从文本中抽取建筑信息。要求：输出合法 JSON 对象，所有字段值必须为字符串或字符串列表，不要使用嵌套对象。",
+      "schema": ["位于", "创建或成立时间", "建筑师"],
+      "input": "悉尼歌剧院位于澳大利亚悉尼港口，由丹麦建筑师约恩·乌松设计，于1973年正式落成，是20世纪最具特色的建筑之一。",
+      "gold_output": {"悉尼歌剧院": {"位于": "澳大利亚悉尼港口", "创建或成立时间": "1973年", "建筑师": "约恩·乌松"}},
+      "schema_def": {
+        "required_fields": ["位于", "建筑师"],
+        "allowed_fields": ["位于", "创建或成立时间", "建筑师"],
+        "types": {"位于": "string", "建筑师": "string"},
+        "max_nesting": 2
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_007",
+      "group": "format_following",
+      "difficulty": "hard",
+      "topic": "运输",
+      "instruction": "请从文本中抽取交通信息。要求：1) 输出合法 JSON；2) 所有字段名必须为中文；3) 多值字段用数组表示；4) 禁止输出 JSON 以外的任何内容。",
+      "schema": ["位于", "线路", "开通时间"],
+      "input": "北京地铁1号线是中国最早的地铁线路之一，于1969年10月1日开通运营，途经北京市东城区、西城区、海淀区等区域。",
+      "gold_output": {"北京地铁1号线": {"位于": "北京市", "开通时间": "1969年10月1日", "线路": "北京地铁1号线"}},
+      "schema_def": {
+        "required_fields": ["开通时间", "线路"],
+        "allowed_fields": ["位于", "线路", "开通时间"],
+        "types": {"开通时间": "string", "线路": "string"},
+        "must_use_chinese_fields": true
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_008",
+      "group": "format_following",
+      "difficulty": "hard",
+      "topic": "医学",
+      "instruction": "请从文本中抽取医学信息并输出结构化 JSON。要求：1) 输出必须为合法 JSON；2) 字段名必须使用 schema 中定义的中文字段名；3) 数组类型的值必须使用 JSON 数组格式；4) 不要附加任何解释。",
+      "schema": ["症状", "治疗方法", "常见并发症"],
+      "input": "高血压是一种以动脉血压持续升高为特征的慢性疾病，常见症状包括头痛、头晕、心悸等。治疗方法主要有降压药物治疗和生活方式调整。长期高血压可能导致冠心病、脑卒中、肾功能不全等并发症。",
+      "gold_output": {"高血压": {"症状": ["头痛", "头晕", "心悸"], "治疗方法": ["降压药物治疗", "生活方式调整"], "常见并发症": ["冠心病", "脑卒中", "肾功能不全"]}},
+      "schema_def": {
+        "required_fields": ["症状", "治疗方法"],
+        "allowed_fields": ["症状", "治疗方法", "常见并发症"],
+        "types": {"症状": "list", "治疗方法": "string_or_list"},
+        "must_use_chinese_fields": true
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    },
+    {
+      "id": "ff_009",
+      "group": "format_following",
+      "difficulty": "hard",
+      "topic": "天文对象",
+      "instruction": "请从文本中抽取天文信息。输出合法 JSON，禁止使用 markdown 代码块格式（不要用```json和```），直接输出原始 JSON 文本。",
+      "schema": ["属于", "直径", "距地距离"],
+      "input": "土星是太阳系中第六颗行星，直径约116464千米，距地球最近时约12亿千米。土星以其壮观的环系统闻名，主要由冰粒和岩石碎片组成。",
+      "gold_output": {"土星": {"属于": "太阳系", "直径": "约116464千米", "距地距离": "约12亿千米"}},
+      "schema_def": {
+        "required_fields": ["属于", "直径"],
+        "allowed_fields": ["属于", "直径", "距地距离"],
+        "types": {"属于": "string", "直径": "string"},
+        "no_markdown": true
+      },
+      "rules": {"json_only": true, "allow_extra_text": false, "no_markdown_fence": true}
+    },
+    {
+      "id": "ff_010",
+      "group": "format_following",
+      "difficulty": "medium",
+      "topic": "作品",
+      "instruction": "只输出 JSON，不要附加任何解释文字。\n从文本中抽取信息并输出 JSON: ",
+      "schema": ["作者", "出版时间", "成就"],
+      "input": "《红楼梦》是中国古典四大名著之一，由曹雪芹创作，前80回为曹雪芹原作，后40回一般认为由高鹗续写。该小说被公认为中国古典小说的巅峰之作。",
+      "gold_output": {"红楼梦": {"作者": "曹雪芹", "成就": "中国古典小说的巅峰之作"}},
+      "schema_def": {
+        "required_fields": ["作者"],
+        "allowed_fields": ["作者", "出版时间", "成就"],
+        "types": {"作者": "string"}
+      },
+      "rules": {"json_only": true, "allow_extra_text": false}
+    }
+  ]
+}

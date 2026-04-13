@@ -1,0 +1,10 @@
+{
+  "name": "tokenizer_full_clean",
+  "description": "Tokenizer settings for the cleaned full MiniMind pretraining corpus.",
+  "input_path": "data/pretrain_clean/tokenizer_sample.txt",
+  "output_dir": "outputs/tokenizer_full_clean",
+  "vocab_size": 6400,
+  "special_tokens": [
+    "<|endoftext|>"
+  ]
+}

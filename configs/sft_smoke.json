@@ -1,0 +1,47 @@
+{
+  "name": "sft_smoke",
+  "description": "Tiny SFT smoke config for the first conversation-format training pass.",
+  "tokenizer": {
+    "vocab_path": "outputs/tokenizer_full_clean/vocab.json",
+    "merges_path": "outputs/tokenizer_full_clean/merge.txt",
+    "special_tokens": ["<|endoftext|>"]
+  },
+  "model": {
+    "vocab_size": 6400,
+    "context_length": 512,
+    "d_model": 512,
+    "num_layers": 8,
+    "num_heads": 8,
+    "d_ff": 1344,
+    "rope_theta": 1000000.0,
+    "use_rms_norm": true,
+    "norm_mode": "pre",
+    "ffn_type": "swiglu"
+  },
+  "optimizer": {
+    "lr": 0.00001,
+    "weight_decay": 0.1
+  },
+  "training": {
+    "batch_size": 1,
+    "max_steps": 2,
+    "eval_interval": 1,
+    "save_interval": 1,
+    "device": "cpu",
+    "seed": 42,
+    "out_dir": "outputs/sft_smoke",
+    "init_checkpoint": "outputs/pretrain_full_corpus/ckpt_final.pt",
+    "resume": false
+  },
+  "data": {
+    "train_data_path": "data/sft_smoke/train.jsonl",
+    "valid_data_path": "data/sft_smoke/valid.jsonl",
+    "system_prompt_ratio": 0.0,
+    "eos_token": "<|endoftext|>"
+  },
+  "logging": {
+    "wandb_project": "micro-lm",
+    "run_name": "sft_smoke",
+    "mode": "disabled"
+  }
+}

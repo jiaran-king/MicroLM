@@ -1,0 +1,38 @@
+[
+  {
+    "rank": 1,
+    "model": "qwen_base",
+    "schema_strict_rate": 0.1,
+    "schema_strict_alias_rate": 0.075,
+    "parseable_rate": 1.0,
+    "missing_rate": 0.825,
+    "hallucination_rate": 0.65
+  },
+  {
+    "rank": 2,
+    "model": "qwen_lora",
+    "schema_strict_rate": 0.075,
+    "schema_strict_alias_rate": 0.15,
+    "parseable_rate": 0.975,
+    "missing_rate": 0.8,
+    "hallucination_rate": 0.675
+  },
+  {
+    "rank": 3,
+    "model": "microlm_sft",
+    "schema_strict_rate": 0.0,
+    "schema_strict_alias_rate": 0.0,
+    "parseable_rate": 0.0,
+    "missing_rate": 1.0,
+    "hallucination_rate": 0.0
+  },
+  {
+    "rank": 4,
+    "model": "microlm_lora",
+    "schema_strict_rate": 0.0,
+    "schema_strict_alias_rate": 0.0,
+    "parseable_rate": 0.0,
+    "missing_rate": 1.0,
+    "hallucination_rate": 0.0
+  }
+]

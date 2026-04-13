@@ -1,0 +1,25 @@
+[project]
+name = "microlm"
+version = "0.1.0"
+description = "MicroLM codebase migrated from CS336 basics."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "einops>=0.8.1",
+    "numpy",
+    "pytest>=8.3.4",
+    "regex>=2024.11.6",
+    "torch",
+    "wandb>=0.19.7",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["microlm", "microlm.model", "microlm.tokenizer", "microlm.training", "microlm.inference"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

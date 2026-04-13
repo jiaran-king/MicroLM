@@ -1,0 +1,40 @@
+{
+  "name": "pretrain_smoke",
+  "description": "Tiny smoke-run config used to verify the training loop after migrations or refactors.",
+  "model": {
+    "vocab_size": 512,
+    "context_length": 64,
+    "d_model": 128,
+    "num_layers": 2,
+    "num_heads": 4,
+    "d_ff": 256,
+    "rope_theta": 10000.0,
+    "use_rms_norm": true,
+    "norm_mode": "pre",
+    "ffn_type": "swiglu"
+  },
+  "optimizer": {
+    "lr": 0.0006,
+    "min_lr": 6e-05,
+    "warmup_iters": 10,
+    "max_norm": 1.0,
+    "weight_decay": 0.1
+  },
+  "training": {
+    "batch_size": 4,
+    "max_iters": 20,
+    "device": "cpu",
+    "seed": 42,
+    "out_dir": "outputs/pretrain_smoke"
+  },
+  "data": {
+    "train_data_path": "data/smoke/train_ids.npy",
+    "valid_data_path": "data/smoke/valid_ids.npy"
+  },
+  "logging": {
+    "wandb_project": "micro-lm",
+    "run_name": "pretrain_smoke",
+    "mode": "disabled"
+  }
+}
+

@@ -1,0 +1,3 @@
+{"conversations":[{"role":"user","content":"你好，请用一句话介绍你自己。"},{"role":"assistant","content":"你好，我是一个可以帮助你处理问题的中文语言模型。"}]}
+{"conversations":[{"role":"user","content":"北京是中国的首都吗？"},{"role":"assistant","content":"是的，北京是中国的首都。"}]}
+{"conversations":[{"role":"system","content":"你是一个简洁的中文助手。"},{"role":"user","content":"1+1等于几？"},{"role":"assistant","content":"1+1等于2。"}]}

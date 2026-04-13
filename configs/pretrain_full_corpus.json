@@ -1,0 +1,38 @@
+{
+  "name": "pretrain_full_corpus",
+  "description": "Single-GPU full-corpus Chinese pretraining run on the cleaned MiniMind pretraining corpus.",
+  "model": {
+    "vocab_size": 6400,
+    "context_length": 512,
+    "d_model": 512,
+    "num_layers": 8,
+    "num_heads": 8,
+    "d_ff": 1344,
+    "rope_theta": 1000000.0,
+    "use_rms_norm": true,
+    "norm_mode": "pre",
+    "ffn_type": "swiglu"
+  },
+  "optimizer": {
+    "lr": 0.0002,
+    "min_lr": 0.00002,
+    "warmup_iters": 2000,
+    "max_norm": 1.0,
+    "weight_decay": 0.1
+  },
+  "training": {
+    "batch_size": 8,
+    "max_iters": 50000,
+    "device": "cuda",
+    "seed": 42,
+    "out_dir": "outputs/pretrain_full_corpus"
+  },
+  "data": {
+    "train_data_path": "data/pretrain_clean/tokenized_full/train_ids.npy",
+    "valid_data_path": "data/pretrain_clean/tokenized_full/valid_ids.npy"
+  },
+  "logging": {
+    "wandb_project": "micro-lm",
+    "run_name": "pretrain_full_corpus_clean"
+  }
+}

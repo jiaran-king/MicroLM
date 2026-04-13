@@ -1,0 +1,39 @@
+{
+  "name": "qwen_lora",
+  "description": "Formal LoRA fine-tuning of Qwen2.5-1.5B-Instruct on InstructIE structured data",
+  "model_name": "./Qwen2.5-1.5B-Instruct",
+  "system_prompt": "你是一个严格遵循 schema 的信息抽取助手。请严格按照给定的 schema 从文本中抽取信息，并以 JSON 格式输出。不要在 JSON 前后添加任何解释性文字。",
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "targets": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "dropout": 0.05
+  },
+  "optimizer": {
+    "lr": 2e-5,
+    "weight_decay": 0.01
+  },
+  "training": {
+    "batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "max_steps": 2000,
+    "eval_interval": 100,
+    "save_interval": 500,
+    "warmup_steps": 100,
+    "max_grad_norm": 1.0,
+    "max_length": 512,
+    "device": "cuda",
+    "seed": 42,
+    "out_dir": "outputs/qwen_lora",
+    "fp16": true
+  },
+  "data": {
+    "train_data_path": "data/sft_candidate/train.jsonl",
+    "valid_data_path": "data/sft_candidate/valid.jsonl"
+  },
+  "logging": {
+    "wandb_project": "micro-lm-qwen",
+    "run_name": "qwen_lora_structured",
+    "mode": "disabled"
+  }
+}

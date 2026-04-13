@@ -1,0 +1,28 @@
+{
+  "qwen_base": {
+    "total": 5,
+    "parseable": 5,
+    "parseable_rate": 1.0,
+    "missing_fields_count": 10,
+    "missing_rate": 1.0,
+    "extra_fields_count": 16,
+    "hallucination_rate": 1.0,
+    "schema_strict_count": 0,
+    "schema_strict_rate": 0.0,
+    "total_time_s": 7.51,
+    "avg_latency_s": 1.502
+  },
+  "qwen_lora": {
+    "total": 5,
+    "parseable": 5,
+    "parseable_rate": 1.0,
+    "missing_fields_count": 6,
+    "missing_rate": 1.0,
+    "extra_fields_count": 13,
+    "hallucination_rate": 1.0,
+    "schema_strict_count": 0,
+    "schema_strict_rate": 0.0,
+    "total_time_s": 2.52,
+    "avg_latency_s": 0.505
+  }
+}

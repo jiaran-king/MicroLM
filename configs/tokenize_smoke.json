@@ -1,0 +1,21 @@
+{
+  "name": "tokenize_smoke",
+  "description": "Tokenization config that pairs with tokenizer_smoke for quick pipeline checks.",
+  "tokenizer": {
+    "vocab_path": "outputs/tokenizer_smoke/vocab.json",
+    "merges_path": "outputs/tokenizer_smoke/merge.txt",
+    "special_tokens": [
+      "<|endoftext|>"
+    ]
+  },
+  "data": {
+    "train_path": "data/smoke/train.txt",
+    "valid_path": "data/smoke/valid.txt"
+  },
+  "output": {
+    "output_dir": "outputs/tokenized_smoke",
+    "read_chunk_bytes": 4096,
+    "token_batch_size": 1024
+  }
+}
+

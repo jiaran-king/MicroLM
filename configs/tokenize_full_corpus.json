@@ -1,0 +1,20 @@
+{
+  "name": "tokenize_full_corpus",
+  "description": "Tokenize the cleaned full MiniMind pretraining corpus with the cleaned 6.4k tokenizer.",
+  "tokenizer": {
+    "vocab_path": "outputs/tokenizer_full_clean/vocab.json",
+    "merges_path": "outputs/tokenizer_full_clean/merge.txt",
+    "special_tokens": [
+      "<|endoftext|>"
+    ]
+  },
+  "data": {
+    "train_path": "data/pretrain_clean/train.txt",
+    "valid_path": "data/pretrain_clean/valid.txt"
+  },
+  "output": {
+    "output_dir": "data/pretrain_clean/tokenized_full",
+    "read_chunk_bytes": 4194304,
+    "token_batch_size": 1000000
+  }
+}

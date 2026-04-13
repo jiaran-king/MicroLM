@@ -1,0 +1,124 @@
+[
+  {
+    "id": "ext_001",
+    "group": "extraction",
+    "raw_output": "{\"鲁迅\": {\"出生地\": \"浙江省绍兴府会稽县\", \"别名\": \"周树人\", \"职业\": \"中国现代文学的奠基人\"}, \"中国现代文学\": {\"代表作\": [\"阿Q正传\", \"狂人日记\"]}}",
+    "clean_output": "{\"鲁迅\": {\"出生地\": \"浙江省绍兴府会稽县\", \"别名\": \"周树人\", \"职业\": \"中国现代文学的奠基人\"}, \"中国现代文学\": {\"代表作\": [\"阿Q正传\", \"狂人日记\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "出生日期"
+    ],
+    "extra_fields": [
+      "代表作"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "别名": true,
+      "出生地": true,
+      "出生日期": false,
+      "职业": false,
+      "成就": false
+    },
+    "latency_s": 0.623
+  },
+  {
+    "id": "ext_002",
+    "group": "extraction",
+    "raw_output": "{\"西湖\": {\"面积\": \"约6.39平方公里\", \"位置\": [\"浙江省\", \"杭州市西湖区\"], \"名称\": \"西湖\"}, \"浙江省\": {\"级别\": \"直辖市\"}, \"杭州市西湖区\": {\"级别\": \"区\"}}",
+    "clean_output": "{\"西湖\": {\"面积\": \"约6.39平方公里\", \"位置\": [\"浙江省\", \"杭州市西湖区\"], \"名称\": \"西湖\"}, \"浙江省\": {\"级别\": \"直辖市\"}, \"杭州市西湖区\": {\"级别\": \"区\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于"
+    ],
+    "extra_fields": [
+      "位置",
+      "名称",
+      "级别",
+      "级别"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "面积": false
+    },
+    "latency_s": 0.507
+  },
+  {
+    "id": "ext_003",
+    "group": "extraction",
+    "raw_output": "{\"阿里巴巴集团\": {\"创始人\": \"马云\", \"成立时间\": \"1999年\"}, \"淘宝网\": {\"所属公司\": \"阿里巴巴集团\"}}",
+    "clean_output": "{\"阿里巴巴集团\": {\"创始人\": \"马云\", \"成立时间\": \"1999年\"}, \"淘宝网\": {\"所属公司\": \"阿里巴巴集团\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "创办者"
+    ],
+    "extra_fields": [
+      "创始人",
+      "所属公司"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "创办者": false,
+      "成立时间": true,
+      "位于": false,
+      "子组织": false
+    },
+    "latency_s": 0.347
+  },
+  {
+    "id": "ext_004",
+    "group": "extraction",
+    "raw_output": "{\"青霉素\": {\"别名\": \"盘尼西林\", \"发明者\": \"亚历山大·弗莱明\"}, \"革兰氏阳性菌\": {\"作用\": \"治疗\"}}",
+    "clean_output": "{\"青霉素\": {\"别名\": \"盘尼西林\", \"发明者\": \"亚历山大·弗莱明\"}, \"革兰氏阳性菌\": {\"作用\": \"治疗\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "发现者或发明者"
+    ],
+    "extra_fields": [
+      "发明者",
+      "作用"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "别名": true,
+      "发现者或发明者": false,
+      "用途": false
+    },
+    "latency_s": 0.416
+  },
+  {
+    "id": "ext_005",
+    "group": "extraction",
+    "raw_output": "{\"埃菲尔铁塔\": {\"高度\": \"324米\", \"建造时间\": \"1889年\", \"位置\": \"法国巴黎战神广场\"}, \"巴黎\": {\"景点\": [\"埃菲尔铁塔\", \"战神广场\"]}, \"法国\": {\"首都\": \"巴黎\"}}",
+    "clean_output": "{\"埃菲尔铁塔\": {\"高度\": \"324米\", \"建造时间\": \"1889年\", \"位置\": \"法国巴黎战神广场\"}, \"巴黎\": {\"景点\": [\"埃菲尔铁塔\", \"战神广场\"]}, \"法国\": {\"首都\": \"巴黎\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于",
+      "建筑师"
+    ],
+    "extra_fields": [
+      "建造时间",
+      "位置",
+      "景点",
+      "首都"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "建筑师": false,
+      "创建或成立时间": false,
+      "高度": true
+    },
+    "latency_s": 0.631
+  }
+]

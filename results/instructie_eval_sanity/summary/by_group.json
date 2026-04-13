@@ -1,0 +1,20 @@
+{
+  "qwen_base": {
+    "extraction": {
+      "total": 5,
+      "parseable_rate": 1.0,
+      "missing_rate": 1.0,
+      "hallucination_rate": 1.0,
+      "schema_strict_rate": 0.0
+    }
+  },
+  "qwen_lora": {
+    "extraction": {
+      "total": 5,
+      "parseable_rate": 1.0,
+      "missing_rate": 1.0,
+      "hallucination_rate": 1.0,
+      "schema_strict_rate": 0.0
+    }
+  }
+}

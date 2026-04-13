@@ -1,0 +1,10 @@
+{
+  "name": "tokenizer_baseline",
+  "description": "Baseline tokenizer settings for the first Chinese pretraining run.",
+  "input_path": "data/pretrain/tokenizer_sample.txt",
+  "output_dir": "outputs/tokenizer_baseline",
+  "vocab_size": 6400,
+  "special_tokens": [
+    "<|endoftext|>"
+  ]
+}

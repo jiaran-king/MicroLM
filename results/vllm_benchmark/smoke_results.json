@@ -1,0 +1,43 @@
+{
+  "server_base_url": "http://localhost:8000",
+  "timestamp": "2026-04-12 20:37:33",
+  "tests": [
+    {
+      "name": "health_check",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "simple_chat",
+      "status": "PASS",
+      "response_preview": "我是阿里云开发的AI助手Qwen，可以回答各种问题、撰写文章和进行对话交流。",
+      "usage": {
+        "prompt_tokens": 36,
+        "total_tokens": 59,
+        "completion_tokens": 23,
+        "prompt_tokens_details": null
+      },
+      "latency_s": 23.352
+    },
+    {
+      "name": "structured_extraction",
+      "status": "PASS",
+      "is_valid_json": true,
+      "fields": [
+        "鲁迅"
+      ],
+      "raw_output": "{\"鲁迅\": {\"职业\": \"中国现代文学的奠基人之一\", \"代表作\": [\"阿Q正传\", \"狂人日记\"], \"姓名\": \"周树人\"}}"
+    },
+    {
+      "name": "multi_turn",
+      "status": "PASS",
+      "response_preview": "{\"名称\": \"胰岛素\", \"类型\": \"激素类药物\"}"
+    },
+    {
+      "name": "structured_response_format",
+      "status": "PASS",
+      "is_valid_json": true,
+      "raw_output": "{\"盘尼西林\": {\"发现者\": \"亚历山大·弗莱明\", \"名称\": \"青霉素\"}, \"青霉素\": {\"发现者\": \"亚历山大·弗莱明\"}}"
+    }
+  ]
+}

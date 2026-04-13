@@ -1,0 +1,1130 @@
+[
+  {
+    "id": "ext_001",
+    "group": "extraction",
+    "raw_output": "{\"鲁迅\": {\"出生地\": \"浙江省绍兴府会稽县\", \"别名\": \"周树人\", \"职业\": \"中国现代文学的奠基人\"}, \"中国现代文学\": {\"代表作\": [\"阿Q正传\", \"狂人日记\"]}}",
+    "clean_output": "{\"鲁迅\": {\"出生地\": \"浙江省绍兴府会稽县\", \"别名\": \"周树人\", \"职业\": \"中国现代文学的奠基人\"}, \"中国现代文学\": {\"代表作\": [\"阿Q正传\", \"狂人日记\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "出生日期"
+    ],
+    "extra_fields": [
+      "代表作"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "别名": true,
+      "出生地": true,
+      "出生日期": false,
+      "职业": false,
+      "成就": false
+    },
+    "latency_s": 0.596,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "出生日期"
+    ],
+    "extra_fields_alias": [
+      "代表作"
+    ]
+  },
+  {
+    "id": "ext_002",
+    "group": "extraction",
+    "raw_output": "{\"西湖\": {\"面积\": \"约6.39平方公里\", \"位置\": [\"浙江省\", \"杭州市西湖区\"], \"名称\": \"西湖\"}, \"浙江省\": {\"级别\": \"直辖市\"}, \"杭州市西湖区\": {\"级别\": \"区\"}}",
+    "clean_output": "{\"西湖\": {\"面积\": \"约6.39平方公里\", \"位置\": [\"浙江省\", \"杭州市西湖区\"], \"名称\": \"西湖\"}, \"浙江省\": {\"级别\": \"直辖市\"}, \"杭州市西湖区\": {\"级别\": \"区\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于"
+    ],
+    "extra_fields": [
+      "位置",
+      "名称",
+      "级别",
+      "级别"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "面积": false
+    },
+    "latency_s": 0.525,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "名称",
+      "级别"
+    ]
+  },
+  {
+    "id": "ext_003",
+    "group": "extraction",
+    "raw_output": "{\"阿里巴巴集团\": {\"创始人\": \"马云\", \"成立时间\": \"1999年\"}, \"淘宝网\": {\"所属公司\": \"阿里巴巴集团\"}}",
+    "clean_output": "{\"阿里巴巴集团\": {\"创始人\": \"马云\", \"成立时间\": \"1999年\"}, \"淘宝网\": {\"所属公司\": \"阿里巴巴集团\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "创办者"
+    ],
+    "extra_fields": [
+      "创始人",
+      "所属公司"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "创办者": false,
+      "成立时间": true,
+      "位于": false,
+      "子组织": false
+    },
+    "latency_s": 0.367,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "所属公司"
+    ]
+  },
+  {
+    "id": "ext_004",
+    "group": "extraction",
+    "raw_output": "{\"青霉素\": {\"别名\": \"盘尼西林\", \"发明者\": \"亚历山大·弗莱明\"}, \"革兰氏阳性菌\": {\"作用\": \"治疗\"}}",
+    "clean_output": "{\"青霉素\": {\"别名\": \"盘尼西林\", \"发明者\": \"亚历山大·弗莱明\"}, \"革兰氏阳性菌\": {\"作用\": \"治疗\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "发现者或发明者"
+    ],
+    "extra_fields": [
+      "发明者",
+      "作用"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "别名": true,
+      "发现者或发明者": false,
+      "用途": false
+    },
+    "latency_s": 0.476,
+    "schema_strict_alias": true,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ext_005",
+    "group": "extraction",
+    "raw_output": "{\"埃菲尔铁塔\": {\"高度\": \"324米\", \"建造时间\": \"1889年\", \"位置\": \"法国巴黎战神广场\"}, \"巴黎\": {\"景点\": [\"埃菲尔铁塔\", \"战神广场\"]}, \"法国\": {\"首都\": \"巴黎\"}}",
+    "clean_output": "{\"埃菲尔铁塔\": {\"高度\": \"324米\", \"建造时间\": \"1889年\", \"位置\": \"法国巴黎战神广场\"}, \"巴黎\": {\"景点\": [\"埃菲尔铁塔\", \"战神广场\"]}, \"法国\": {\"首都\": \"巴黎\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于",
+      "建筑师"
+    ],
+    "extra_fields": [
+      "建造时间",
+      "位置",
+      "景点",
+      "首都"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "建筑师": false,
+      "创建或成立时间": false,
+      "高度": true
+    },
+    "latency_s": 0.686,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "建筑师"
+    ],
+    "extra_fields_alias": [
+      "首都",
+      "景点"
+    ]
+  },
+  {
+    "id": "ext_006",
+    "group": "extraction",
+    "raw_output": "{\"2008年北京夏季奥林匹克运动会\": {\"主办城市\": \"中国北京\", \"参赛国家和地区\": \"204个\", \"举办时间\": [\"2008年8月8日至8月24日\"]}}",
+    "clean_output": "{\"2008年北京夏季奥林匹克运动会\": {\"主办城市\": \"中国北京\", \"参赛国家和地区\": \"204个\", \"举办时间\": [\"2008年8月8日至8月24日\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "发生地点",
+      "发生时间"
+    ],
+    "extra_fields": [
+      "主办城市",
+      "参赛国家和地区",
+      "举办时间"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "发生地点": false,
+      "发生时间": false,
+      "参与者": false
+    },
+    "latency_s": 0.578,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "发生地点"
+    ],
+    "extra_fields_alias": [
+      "参赛国家和地区",
+      "主办城市"
+    ]
+  },
+  {
+    "id": "ext_007",
+    "group": "extraction",
+    "raw_output": "{\"糖尿病\": {\"主要症状\": [\"多饮\", \"多尿\", \"多食和体重下降\"], \"并发症\": [\"心血管疾病\", \"视网膜病变\"]}}",
+    "clean_output": "{\"糖尿病\": {\"主要症状\": [\"多饮\", \"多尿\", \"多食和体重下降\"], \"并发症\": [\"心血管疾病\", \"视网膜病变\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "症状"
+    ],
+    "extra_fields": [
+      "主要症状",
+      "并发症"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "症状": false,
+      "常见并发症": false,
+      "治疗方法": false
+    },
+    "latency_s": 0.379,
+    "schema_strict_alias": true,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ext_008",
+    "group": "extraction",
+    "raw_output": "{\"上海虹桥站\": {\"所属\": \"中国铁路上海局集团有限公司\", \"位置\": [\"上海市闵行区\", \"中国铁路上海局集团有限公司\"], \"启用时间\": \"2010年7月1日\"}, \"闵行区\": {\"位置\": \"上海市\"}}",
+    "clean_output": "{\"上海虹桥站\": {\"所属\": \"中国铁路上海局集团有限公司\", \"位置\": [\"上海市闵行区\", \"中国铁路上海局集团有限公司\"], \"启用时间\": \"2010年7月1日\"}, \"闵行区\": {\"位置\": \"上海市\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于"
+    ],
+    "extra_fields": [
+      "所属",
+      "位置",
+      "启用时间",
+      "位置"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "开通时间": false
+    },
+    "latency_s": 0.643,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "所属"
+    ]
+  },
+  {
+    "id": "ext_009",
+    "group": "extraction",
+    "raw_output": "{\"宝剑\": {\"材料\": \"铁或钢\", \"产地\": \"湖北省江陵县\"}, \"越王勾践剑\": {\"长度\": \"55.7厘米\", \"产地\": \"湖北省江陵县\", \"材料\": \"铁或钢\", \"等级\": \"中国一级文物\"}}",
+    "clean_output": "{\"宝剑\": {\"材料\": \"铁或钢\", \"产地\": \"湖北省江陵县\"}, \"越王勾践剑\": {\"长度\": \"55.7厘米\", \"产地\": \"湖北省江陵县\", \"材料\": \"铁或钢\", \"等级\": \"中国一级文物\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [
+      "等级"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "材料": false,
+      "长度": true,
+      "宽度": false,
+      "产地": true
+    },
+    "latency_s": 0.663,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "等级"
+    ]
+  },
+  {
+    "id": "ext_010",
+    "group": "extraction",
+    "raw_output": "{\"三体\": {\"作者\": \"刘慈欣\", \"出版社\": \"重庆出版社\", \"获奖\": [\"雨果奖最佳长篇小说奖\"], \"出版时间\": \"2008年1月\"}, \"刘慈欣\": {\"职业\": \"中国科幻作家\"}}",
+    "clean_output": "{\"三体\": {\"作者\": \"刘慈欣\", \"出版社\": \"重庆出版社\", \"获奖\": [\"雨果奖最佳长篇小说奖\"], \"出版时间\": \"2008年1月\"}, \"刘慈欣\": {\"职业\": \"中国科幻作家\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [
+      "出版社",
+      "获奖",
+      "职业"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "作者": true,
+      "出版时间": true,
+      "出版商": false,
+      "成就": false,
+      "产地": false
+    },
+    "latency_s": 0.611,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "出版社",
+      "职业"
+    ]
+  },
+  {
+    "id": "ext_011",
+    "group": "extraction",
+    "raw_output": "{\"大熊猫\": {\"属\": \"Ailuropoda\", \"分布\": [\"四川\", \"陕西\", \"甘肃\"], \"别称\": \"熊猫\"}, \"中国\": {\"特产\": \"大熊猫\"}}",
+    "clean_output": "{\"大熊猫\": {\"属\": \"Ailuropoda\", \"分布\": [\"四川\", \"陕西\", \"甘肃\"], \"别称\": \"熊猫\"}, \"中国\": {\"特产\": \"大熊猫\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "学名"
+    ],
+    "extra_fields": [
+      "属",
+      "别称",
+      "特产"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "分布": true,
+      "学名": false,
+      "产地": false,
+      "保护级别": false
+    },
+    "latency_s": 0.431,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "学名"
+    ],
+    "extra_fields_alias": [
+      "特产",
+      "属"
+    ]
+  },
+  {
+    "id": "ext_012",
+    "group": "extraction",
+    "raw_output": "{\"木星\": {\"直径\": \"142984千米\", \"距离太阳\": \"7.78亿千米\", \"名称\": \"朱庇特\"}}",
+    "clean_output": "{\"木星\": {\"直径\": \"142984千米\", \"距离太阳\": \"7.78亿千米\", \"名称\": \"朱庇特\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "属于"
+    ],
+    "extra_fields": [
+      "距离太阳",
+      "名称"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "属于": false,
+      "直径": true,
+      "名称由来": false
+    },
+    "latency_s": 0.377,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "属于"
+    ],
+    "extra_fields_alias": [
+      "名称",
+      "距离太阳"
+    ]
+  },
+  {
+    "id": "ext_013",
+    "group": "extraction",
+    "raw_output": "{\"阿尔伯特·爱因斯坦\": {\"出生日期\": \"1879年3月14日\", \"国籍\": \"德国\", \"配偶\": \"米列娃·马里奇\", \"职业\": \"理论物理学家\", \"成就\": [\"诺贝尔物理学奖\", \"狭义相对论\", \"广义相对论\"]}, \"米列娃·马里奇\": {\"丈夫\": \"阿尔伯特·爱因斯坦\"}}",
+    "clean_output": "{\"阿尔伯特·爱因斯坦\": {\"出生日期\": \"1879年3月14日\", \"国籍\": \"德国\", \"配偶\": \"米列娃·马里奇\", \"职业\": \"理论物理学家\", \"成就\": [\"诺贝尔物理学奖\", \"狭义相对论\", \"广义相对论\"]}, \"米列娃·马里奇\": {\"丈夫\": \"阿尔伯特·爱因斯坦\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "出生地"
+    ],
+    "extra_fields": [
+      "配偶",
+      "丈夫"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "出生地": false,
+      "出生日期": true,
+      "职业": true,
+      "成就": true,
+      "雇主": false,
+      "教育机构": false,
+      "家庭成员": false
+    },
+    "latency_s": 0.983,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "出生地"
+    ],
+    "extra_fields_alias": [
+      "配偶",
+      "丈夫"
+    ]
+  },
+  {
+    "id": "ext_014",
+    "group": "extraction",
+    "raw_output": "{\"第二次世界大战\": {\"参与方\": [\"同盟国\", \"轴心国\"], \"开始时间\": \"1939年9月1日\", \"结束时间\": \"1945年9月2日\", \"伤亡人数\": \"约7000至8500万人\"}}",
+    "clean_output": "{\"第二次世界大战\": {\"参与方\": [\"同盟国\", \"轴心国\"], \"开始时间\": \"1939年9月1日\", \"结束时间\": \"1945年9月2日\", \"伤亡人数\": \"约7000至8500万人\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "发生时间",
+      "起因"
+    ],
+    "extra_fields": [
+      "参与方",
+      "开始时间",
+      "结束时间"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "发生时间": false,
+      "起因": false,
+      "导致": false,
+      "伤亡人数": true,
+      "参与者": false
+    },
+    "latency_s": 0.76,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "起因"
+    ],
+    "extra_fields_alias": [
+      "参与方",
+      "结束时间"
+    ]
+  },
+  {
+    "id": "ext_015",
+    "group": "extraction",
+    "raw_output": "{\"联合国\": {\"主要机构\": [\"安全理事会\", \"联合国大会\", \"国际法院\", \"经济及社会理事会\"], \"会员国\": \"193个\"}, \"联合国大会\": {\"主要机构\": \"联合国\"}}",
+    "clean_output": "{\"联合国\": {\"主要机构\": [\"安全理事会\", \"联合国大会\", \"国际法院\", \"经济及社会理事会\"], \"会员国\": \"193个\"}, \"联合国大会\": {\"主要机构\": \"联合国\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于",
+      "成立时间"
+    ],
+    "extra_fields": [
+      "主要机构",
+      "会员国",
+      "主要机构"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "成立时间": false,
+      "子组织": false,
+      "成员": false
+    },
+    "latency_s": 0.533,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "位于",
+      "成立时间"
+    ],
+    "extra_fields_alias": [
+      "会员国",
+      "主要机构"
+    ]
+  },
+  {
+    "id": "ext_016",
+    "group": "extraction",
+    "raw_output": "{\"哈利·波特\": {\"作者\": \"J.K.罗琳\", \"出版公司\": \"英国布鲁姆斯伯里出版社\"}, \"哈利·波特与魔法石\": {\"出版公司\": \"英国布鲁姆斯伯里出版社\"}}",
+    "clean_output": "{\"哈利·波特\": {\"作者\": \"J.K.罗琳\", \"出版公司\": \"英国布鲁姆斯伯里出版社\"}, \"哈利·波特与魔法石\": {\"出版公司\": \"英国布鲁姆斯伯里出版社\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [
+      "出版公司",
+      "出版公司"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "作者": true,
+      "出版时间": false,
+      "产地": false,
+      "出版商": false,
+      "改编自": false,
+      "成就": false
+    },
+    "latency_s": 0.539,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "出版公司"
+    ]
+  },
+  {
+    "id": "ext_017",
+    "group": "extraction",
+    "raw_output": "{\"黑火药\": {\"别名\": \"火药\", \"用途\": [\"制造火炮和烟花\", \"军事和民用\"], \"原料\": [\"硝石\", \"硫磺\", \"木炭\"]}, \"硝石\": {\"别名\": \"火药\"}, \"硫磺\": {\"别名\": \"火药\"}}",
+    "clean_output": "{\"黑火药\": {\"别名\": \"火药\", \"用途\": [\"制造火炮和烟花\", \"军事和民用\"], \"原料\": [\"硝石\", \"硫磺\", \"木炭\"]}, \"硝石\": {\"别名\": \"火药\"}, \"硫磺\": {\"别名\": \"火药\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "组成",
+      "发现者或发明者"
+    ],
+    "extra_fields": [
+      "原料"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "别名": false,
+      "组成": false,
+      "发现者或发明者": false,
+      "用途": false,
+      "产地": false
+    },
+    "latency_s": 0.774,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "发现者或发明者"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ext_018",
+    "group": "extraction",
+    "raw_output": "{\"长江\": {\"长度\": \"约6300千米\", \"起点\": \"青藏高原唐古拉山脉\", \"终点\": \"东海\", \"人口\": \"约4亿\"}}",
+    "clean_output": "{\"长江\": {\"长度\": \"约6300千米\", \"起点\": \"青藏高原唐古拉山脉\", \"终点\": \"东海\", \"人口\": \"约4亿\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [
+      "起点",
+      "终点"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "长度": true,
+      "位于": false,
+      "面积": false
+    },
+    "latency_s": 2.176,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "起点",
+      "终点"
+    ]
+  },
+  {
+    "id": "sc_001",
+    "group": "schema_constraint",
+    "raw_output": "{\"姚明\": {\"出生日期\": \"1980年9月12日\", \"职业\": [\"中国职业篮球运动员\", \"前中国职业篮球运动员\"], \"国籍\": \"中国\"}}",
+    "clean_output": "{\"姚明\": {\"出生日期\": \"1980年9月12日\", \"职业\": [\"中国职业篮球运动员\", \"前中国职业篮球运动员\"], \"国籍\": \"中国\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "出生地"
+    ],
+    "extra_fields": [
+      "职业"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "出生地": false,
+      "出生日期": true,
+      "国籍": true
+    },
+    "latency_s": 0.454,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "出生地"
+    ],
+    "extra_fields_alias": [
+      "职业"
+    ]
+  },
+  {
+    "id": "sc_002",
+    "group": "schema_constraint",
+    "raw_output": "{\"腾讯公司\": {\"创始人\": \"马化腾\", \"成立时间\": \"1998年\", \"CEO\": \"马化腾\"}, \"马化腾\": {\"职务\": \"腾讯公司CEO\"}}",
+    "clean_output": "{\"腾讯公司\": {\"创始人\": \"马化腾\", \"成立时间\": \"1998年\", \"CEO\": \"马化腾\"}, \"马化腾\": {\"职务\": \"腾讯公司CEO\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于",
+      "创办者"
+    ],
+    "extra_fields": [
+      "创始人",
+      "CEO",
+      "职务"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "成立时间": true,
+      "创办者": false
+    },
+    "latency_s": 0.481,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "位于"
+    ],
+    "extra_fields_alias": [
+      "CEO",
+      "职务"
+    ]
+  },
+  {
+    "id": "sc_003",
+    "group": "schema_constraint",
+    "raw_output": "{\"巴黎圣母院\": {\"用途\": \"天主教大教堂\"}, \"巴黎\": {\"用途\": \"宗教\"}}",
+    "clean_output": "{\"巴黎圣母院\": {\"用途\": \"天主教大教堂\"}, \"巴黎\": {\"用途\": \"宗教\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于"
+    ],
+    "extra_fields": [],
+    "enum_ok": false,
+    "enum_violations": {
+      "用途": "got '天主教大教堂', expected one of ['交通', '住宅', '军事', '商业', '宗教', '教育', '文化']"
+    },
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "创建或成立时间": false,
+      "高度": false,
+      "用途": false
+    },
+    "latency_s": 0.282,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "位于"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "sc_004",
+    "group": "schema_constraint",
+    "raw_output": "{\"肺炎\": {\"症状\": [\"发热\", \"呼吸困难\", \"咳嗽\"], \"所属科室\": \"呼吸系统\"}, \"呼吸系统\": {\"所属科室\": \"内科\"}}",
+    "clean_output": "{\"肺炎\": {\"症状\": [\"发热\", \"呼吸困难\", \"咳嗽\"], \"所属科室\": \"呼吸系统\"}, \"呼吸系统\": {\"所属科室\": \"内科\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [],
+    "enum_ok": false,
+    "enum_violations": {
+      "所属科室": "got '呼吸系统', expected one of ['儿科', '内科', '外科', '妇产科', '皮肤科', '眼科', '神经科', '骨科']"
+    },
+    "schema_strict": false,
+    "value_match": {
+      "症状": true,
+      "治疗方法": false,
+      "所属科室": false
+    },
+    "latency_s": 0.387,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "sc_005",
+    "group": "schema_constraint",
+    "raw_output": "{\"1969年7月20日\": {\"事件\": \"阿波罗11号任务成功将宇航员送上月球\", \"人物\": [\"尼尔·阿姆斯特朗\", \"阿波罗11号任务\"]}, \"尼尔·阿姆斯特朗\": {\"成就\": \"第一个踏上月球表面的人\"}}",
+    "clean_output": "{\"1969年7月20日\": {\"事件\": \"阿波罗11号任务成功将宇航员送上月球\", \"人物\": [\"尼尔·阿姆斯特朗\", \"阿波罗11号任务\"]}, \"尼尔·阿姆斯特朗\": {\"成就\": \"第一个踏上月球表面的人\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "发生时间",
+      "发生地点"
+    ],
+    "extra_fields": [
+      "事件",
+      "人物",
+      "成就"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {},
+    "latency_s": 0.799,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "发生时间",
+      "发生地点"
+    ],
+    "extra_fields_alias": [
+      "人物",
+      "事件",
+      "成就"
+    ]
+  },
+  {
+    "id": "sc_006",
+    "group": "schema_constraint",
+    "raw_output": "{\"X射线\": {\"发明者\": \"威廉·伦琴\", \"别称\": \"伦琴射线\", \"应用领域\": [\"医学影像诊断\", \"工业无损检测\", \"安全检查\"], \"名称\": \"伦琴射线\"}}",
+    "clean_output": "{\"X射线\": {\"发明者\": \"威廉·伦琴\", \"别称\": \"伦琴射线\", \"应用领域\": [\"医学影像诊断\", \"工业无损检测\", \"安全检查\"], \"名称\": \"伦琴射线\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "别名",
+      "发现者或发明者"
+    ],
+    "extra_fields": [
+      "发明者",
+      "别称",
+      "应用领域",
+      "名称"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "别名": false,
+      "发现者或发明者": false,
+      "用途": false
+    },
+    "latency_s": 0.579,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "名称"
+    ]
+  },
+  {
+    "id": "sc_007",
+    "group": "schema_constraint",
+    "raw_output": "{\"北京南站\": {\"车站等级\": \"特等站\", \"所属公司\": \"中国铁路北京局集团有限公司\", \"位置\": \"北京市丰台区\"}, \"丰台区\": {\"所在城市\": \"北京市\"}}",
+    "clean_output": "{\"北京南站\": {\"车站等级\": \"特等站\", \"所属公司\": \"中国铁路北京局集团有限公司\", \"位置\": \"北京市丰台区\"}, \"丰台区\": {\"所在城市\": \"北京市\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于"
+    ],
+    "extra_fields": [
+      "所属公司",
+      "位置",
+      "所在城市"
+    ],
+    "enum_ok": true,
+    "enum_violations": {},
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "线路": false,
+      "开通时间": false,
+      "车站等级": true
+    },
+    "latency_s": 0.519,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [],
+    "extra_fields_alias": [
+      "所在城市",
+      "所属公司"
+    ]
+  },
+  {
+    "id": "sc_008",
+    "group": "schema_constraint",
+    "raw_output": "{\"华南虎\": {\"保护级别\": \"国家一级保护动物\"}}",
+    "clean_output": "{\"华南虎\": {\"保护级别\": \"国家一级保护动物\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "学名"
+    ],
+    "extra_fields": [],
+    "enum_ok": true,
+    "enum_violations": {},
+    "schema_strict": false,
+    "value_match": {
+      "分布": false,
+      "学名": false,
+      "保护级别": true
+    },
+    "latency_s": 0.166,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "学名"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "sc_009",
+    "group": "schema_constraint",
+    "raw_output": "{\"百年孤独\": {\"作者\": \"加西亚·马尔克斯\", \"奖项\": [\"诺贝尔文学奖\", \"魔幻现实主义文学\"], \"首次出版\": \"1967年\"}}",
+    "clean_output": "{\"百年孤独\": {\"作者\": \"加西亚·马尔克斯\", \"奖项\": [\"诺贝尔文学奖\", \"魔幻现实主义文学\"], \"首次出版\": \"1967年\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "出版时间"
+    ],
+    "extra_fields": [
+      "奖项",
+      "首次出版"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "作者": true,
+      "出版时间": false,
+      "成就": false
+    },
+    "latency_s": 0.446,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "出版时间"
+    ],
+    "extra_fields_alias": [
+      "首次出版"
+    ]
+  },
+  {
+    "id": "sc_010",
+    "group": "schema_constraint",
+    "raw_output": "{\"火星\": {\"直径\": \"约6779千米\", \"表面平均温度\": \"-63℃\", \"距离太阳的距离\": \"1.496亿千米\"}, \"太阳系\": {\"行星\": [\"地球\", \"火星\", \"水星\"]}}",
+    "clean_output": "{\"火星\": {\"直径\": \"约6779千米\", \"表面平均温度\": \"-63℃\", \"距离太阳的距离\": \"1.496亿千米\"}, \"太阳系\": {\"行星\": [\"地球\", \"火星\", \"水星\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "属于"
+    ],
+    "extra_fields": [
+      "表面平均温度",
+      "距离太阳的距离",
+      "行星"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "属于": false,
+      "直径": true,
+      "表面温度": false
+    },
+    "latency_s": 0.6,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "属于"
+    ],
+    "extra_fields_alias": [
+      "距离太阳的距离",
+      "表面平均温度",
+      "行星"
+    ]
+  },
+  {
+    "id": "sc_011",
+    "group": "schema_constraint",
+    "raw_output": "{\"司南\": {\"材料\": \"天然磁石\"}}",
+    "clean_output": "{\"司南\": {\"材料\": \"天然磁石\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "用途"
+    ],
+    "extra_fields": [],
+    "enum_ok": false,
+    "enum_violations": {
+      "材料": "got '天然磁石', expected one of ['塑料', '木材', '橡胶', '玻璃', '石材', '纤维', '金属', '陶瓷']"
+    },
+    "schema_strict": false,
+    "value_match": {
+      "别名": false,
+      "材料": false,
+      "用途": false,
+      "产地": false
+    },
+    "latency_s": 0.138,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "用途"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "sc_012",
+    "group": "schema_constraint",
+    "raw_output": "{\"死海\": {\"海拔\": \"-430米\", \"面积\": \"810平方公里\", \"位置\": [\"约旦\", \"巴勒斯坦\", \"以色列\"]}}",
+    "clean_output": "{\"死海\": {\"海拔\": \"-430米\", \"面积\": \"810平方公里\", \"位置\": [\"约旦\", \"巴勒斯坦\", \"以色列\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "位于"
+    ],
+    "extra_fields": [
+      "位置"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": false,
+      "面积": false,
+      "海拔": false
+    },
+    "latency_s": 0.418,
+    "schema_strict_alias": true,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_001",
+    "group": "format_following",
+    "raw_output": "{\"李白\": {\"出生日期\": \"701年\", \"职业\": \"唐代著名的浪漫主义诗人\", \"出生地\": \"碎叶城\"}}",
+    "clean_output": "{\"李白\": {\"出生日期\": \"701年\", \"职业\": \"唐代著名的浪漫主义诗人\", \"出生地\": \"碎叶城\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": true,
+    "value_match": {
+      "出生地": true,
+      "出生日期": true,
+      "职业": false
+    },
+    "latency_s": 0.351,
+    "schema_strict_alias": true,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_002",
+    "group": "format_following",
+    "raw_output": "[\"江西省北部\", \"安徽省\", {\"面积\": \"约3150平方公里\"}, \"中国\"]",
+    "clean_output": "[\"江西省北部\", \"安徽省\", {\"面积\": \"约3150平方公里\"}, \"中国\"]",
+    "parsed": true,
+    "missing_fields": [
+      "位于",
+      "面积"
+    ],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": null,
+    "latency_s": 0.235,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "位于",
+      "面积"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_003",
+    "group": "format_following",
+    "raw_output": "{\"华为技术有限公司\": {\"成立时间\": \"1987年\", \"位于\": \"广东省深圳市\"}, \"深圳市\": {\"位于\": \"广东省\"}}",
+    "clean_output": "{\"华为技术有限公司\": {\"成立时间\": \"1987年\", \"位于\": \"广东省深圳市\"}, \"深圳市\": {\"位于\": \"广东省\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "创办者"
+    ],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": true,
+      "成立时间": true,
+      "创办者": false
+    },
+    "latency_s": 0.354,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "创办者"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_004",
+    "group": "format_following",
+    "raw_output": "{\"DNA双螺旋结构\": {\"发现者或发明者\": \"沃森和克里克\"}}",
+    "clean_output": "{\"DNA双螺旋结构\": {\"发现者或发明者\": \"沃森和克里克\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": true,
+    "value_match": {
+      "发现者或发明者": false,
+      "用途": false
+    },
+    "latency_s": 0.237,
+    "schema_strict_alias": true,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_005",
+    "group": "format_following",
+    "raw_output": "{\"2008年汶川地震\": {\"发生时间\": \"2008年5月12日\", \"发生地点\": \"四川省汶川县\"}}",
+    "clean_output": "{\"2008年汶川地震\": {\"发生时间\": \"2008年5月12日\", \"发生地点\": \"四川省汶川县\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "起因"
+    ],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {},
+    "latency_s": 0.374,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "起因"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_006",
+    "group": "format_following",
+    "raw_output": "{\"悉尼歌剧院\": {\"位于\": \"澳大利亚悉尼港口\", \"创建或成立时间\": \"1973年\"}, \"悉尼港口\": {\"位于\": \"澳大利亚\"}}",
+    "clean_output": "{\"悉尼歌剧院\": {\"位于\": \"澳大利亚悉尼港口\", \"创建或成立时间\": \"1973年\"}, \"悉尼港口\": {\"位于\": \"澳大利亚\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "建筑师"
+    ],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": true,
+      "创建或成立时间": true,
+      "建筑师": false
+    },
+    "latency_s": 0.388,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "建筑师"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_007",
+    "group": "format_following",
+    "raw_output": "{\"北京地铁1号线\": {\"开通时间\": \"1969年10月1日\", \"位于\": \"北京市\"}}",
+    "clean_output": "{\"北京地铁1号线\": {\"开通时间\": \"1969年10月1日\", \"位于\": \"北京市\"}}",
+    "parsed": true,
+    "missing_fields": [
+      "线路"
+    ],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "位于": true,
+      "开通时间": true,
+      "线路": false
+    },
+    "latency_s": 0.314,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "线路"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_008",
+    "group": "format_following",
+    "raw_output": "{\"高血压\": {\"常见症状\": [\"头痛\", \"头晕\", \"心悸\"], \"并发症\": [\"冠心病\", \"脑卒中\", \"肾功能不全\"]}}",
+    "clean_output": "{\"高血压\": {\"常见症状\": [\"头痛\", \"头晕\", \"心悸\"], \"并发症\": [\"冠心病\", \"脑卒中\", \"肾功能不全\"]}}",
+    "parsed": true,
+    "missing_fields": [
+      "症状",
+      "治疗方法"
+    ],
+    "extra_fields": [
+      "常见症状",
+      "并发症"
+    ],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": false,
+    "value_match": {
+      "症状": false,
+      "治疗方法": false,
+      "常见并发症": false
+    },
+    "latency_s": 0.409,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "治疗方法"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_009",
+    "group": "format_following",
+    "raw_output": "[\"属于\": \"太阳系\"], {\"属于\": \"太阳系\", \"直径\": \"116464千米\"}, {\"属于\": \"太阳系中的第六颗行星\"}",
+    "clean_output": "[\"属于\": \"太阳系\"], {\"属于\": \"太阳系\", \"直径\": \"116464千米\"}, {\"属于\": \"太阳系中的第六颗行星\"}",
+    "parsed": false,
+    "missing_fields": [
+      "属于",
+      "直径"
+    ],
+    "extra_fields": [],
+    "enum_ok": null,
+    "schema_strict": false,
+    "value_match": null,
+    "latency_s": 0.405,
+    "schema_strict_alias": false,
+    "missing_fields_alias": [
+      "属于",
+      "直径"
+    ],
+    "extra_fields_alias": []
+  },
+  {
+    "id": "ff_010",
+    "group": "format_following",
+    "raw_output": "{\"红楼梦\": {\"作者\": \"曹雪芹\", \"成就\": \"中国古典小说的巅峰之作\", \"出版时间\": \"未提供\"}}",
+    "clean_output": "{\"红楼梦\": {\"作者\": \"曹雪芹\", \"成就\": \"中国古典小说的巅峰之作\", \"出版时间\": \"未提供\"}}",
+    "parsed": true,
+    "missing_fields": [],
+    "extra_fields": [],
+    "enum_ok": null,
+    "enum_violations": null,
+    "schema_strict": true,
+    "value_match": {
+      "作者": true,
+      "成就": true
+    },
+    "latency_s": 0.329,
+    "schema_strict_alias": true,
+    "missing_fields_alias": [],
+    "extra_fields_alias": []
+  }
+]

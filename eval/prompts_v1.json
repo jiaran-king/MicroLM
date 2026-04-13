@@ -1,0 +1,259 @@
+{
+  "description": "Extended evaluation prompts v1 for comparing pretrain / SFT baseline / LoRA SFT. Expanded from prompts_baseline.json (13 -> 40 prompts, 5 categories)",
+  "generation_params": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "max_new_tokens": 128,
+    "seed": 42
+  },
+  "prompts": [
+    {
+      "id": "qa_01",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "中国的首都是哪里？"}
+      ]
+    },
+    {
+      "id": "qa_02",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "地球上最大的海洋是什么？"}
+      ]
+    },
+    {
+      "id": "qa_03",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "一年有多少天？闰年呢？"}
+      ]
+    },
+    {
+      "id": "qa_04",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "水在标准大气压下的沸点是多少度？"}
+      ]
+    },
+    {
+      "id": "qa_05",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "太阳系中最大的行星是哪颗？"}
+      ]
+    },
+    {
+      "id": "qa_06",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "中国的四大发明是什么？"}
+      ]
+    },
+    {
+      "id": "qa_07",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "世界上最高的山峰叫什么名字？"}
+      ]
+    },
+    {
+      "id": "qa_08",
+      "category": "基础问答",
+      "conversations": [
+        {"role": "user", "content": "一年有几个月？每个月最多有多少天？"}
+      ]
+    },
+    {
+      "id": "expr_01",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "用三句话概括《西游记》的故事。"}
+      ]
+    },
+    {
+      "id": "expr_02",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "请简单解释什么是人工智能。"}
+      ]
+    },
+    {
+      "id": "expr_03",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "用一句话总结《三国演义》的主题。"}
+      ]
+    },
+    {
+      "id": "expr_04",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "用通俗的语言解释什么是光合作用。"}
+      ]
+    },
+    {
+      "id": "expr_05",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "请用两句话介绍唐朝的历史地位。"}
+      ]
+    },
+    {
+      "id": "expr_06",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "简要概括《红楼梦》的主要故事线索。"}
+      ]
+    },
+    {
+      "id": "expr_07",
+      "category": "中文表达与总结",
+      "conversations": [
+        {"role": "user", "content": "用三句话解释什么是云计算。"}
+      ]
+    },
+    {
+      "id": "instr_01",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请列出三种水果的名称。"}
+      ]
+    },
+    {
+      "id": "instr_02",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请用JSON格式输出三个中国城市的名称。"}
+      ]
+    },
+    {
+      "id": "instr_03",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "把下面的句子翻译成英文：今天天气很好。"}
+      ]
+    },
+    {
+      "id": "instr_04",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请按从大到小的顺序排列以下数字：3, 17, 8, 42, 1。"}
+      ]
+    },
+    {
+      "id": "instr_05",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请写一首关于秋天的四行诗。"}
+      ]
+    },
+    {
+      "id": "instr_06",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请列出五个以"春"字开头的成语。"}
+      ]
+    },
+    {
+      "id": "instr_07",
+      "category": "指令遵循",
+      "conversations": [
+        {"role": "user", "content": "请用三个形容词描述大海。"}
+      ]
+    },
+    {
+      "id": "multi_01",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "你好，请介绍一下你自己。"},
+        {"role": "assistant", "content": "你好！我是一个AI助手，可以回答各种问题。"},
+        {"role": "user", "content": "那你能做什么？"}
+      ]
+    },
+    {
+      "id": "multi_02",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "李白是哪个朝代的诗人？"},
+        {"role": "assistant", "content": "李白是唐朝著名的浪漫主义诗人，被誉为\"诗仙\"。"},
+        {"role": "user", "content": "他最有名的诗是哪首？"}
+      ]
+    },
+    {
+      "id": "multi_03",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "我想学习Python编程，有什么建议吗？"},
+        {"role": "assistant", "content": "建议从基础语法开始学习，先掌握变量、循环和函数的概念。"},
+        {"role": "user", "content": "那有没有推荐的入门书籍？"}
+      ]
+    },
+    {
+      "id": "multi_04",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "北京今天天气怎么样？"},
+        {"role": "assistant", "content": "抱歉，我无法获取实时天气信息。建议您查看天气预报应用。"},
+        {"role": "user", "content": "那你能告诉我北京一般在几月份最热吗？"}
+      ]
+    },
+    {
+      "id": "multi_05",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "请帮我写一封邮件给老师请假。"},
+        {"role": "assistant", "content": "好的，请问您要请假几天？原因是什么？"},
+        {"role": "user", "content": "请假两天，因为感冒了需要休息。"}
+      ]
+    },
+    {
+      "id": "multi_06",
+      "category": "多轮对话",
+      "conversations": [
+        {"role": "user", "content": "中国有多少个省级行政区？"},
+        {"role": "assistant", "content": "中国共有34个省级行政区，包括23个省、5个自治区、4个直辖市和2个特别行政区。"},
+        {"role": "user", "content": "其中四个直辖市分别是哪里？"}
+      ]
+    },
+    {
+      "id": "cont_01",
+      "category": "续写",
+      "prompt_text": "春天的早晨，阳光洒在小村庄的屋顶上，"
+    },
+    {
+      "id": "cont_02",
+      "category": "续写",
+      "prompt_text": "从前有一座山，山上有一座庙，庙里有一个老和尚和一个小和尚。"
+    },
+    {
+      "id": "cont_03",
+      "category": "续写",
+      "prompt_text": "夜深了，城市的灯火渐渐暗了下来，街道上只剩下"
+    },
+    {
+      "id": "cont_04",
+      "category": "续写",
+      "prompt_text": "小明走在回家的路上，突然看到路边有一只受伤的小猫，它"
+    },
+    {
+      "id": "cont_05",
+      "category": "续写",
+      "prompt_text": "秋天到了，树叶变成了金黄色，一阵风吹来，"
+    },
+    {
+      "id": "cont_06",
+      "category": "续写",
+      "prompt_text": "在一个遥远的王国里，有一位年轻的骑士，他决定"
+    },
+    {
+      "id": "cont_07",
+      "category": "续写",
+      "prompt_text": "清晨的第一缕阳光穿过窗帘，照在书桌上那本翻开的书上，"
+    },
+    {
+      "id": "cont_08",
+      "category": "续写",
+      "prompt_text": "站在山顶上，俯瞰脚下的城市，他深深地吸了一口气，"
+    }
+  ]
+}

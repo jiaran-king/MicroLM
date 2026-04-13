@@ -1,0 +1,48 @@
+{
+  "qwen_base": {
+    "total": 40,
+    "entity_key_rate": 0.575,
+    "chinese_fields_rate": 0.55,
+    "avg_field_overlap": 0.1697,
+    "by_group": {
+      "extraction": {
+        "entity_key_rate": 0.7222,
+        "chinese_fields_rate": 0.5556,
+        "avg_field_overlap": 0.037
+      },
+      "schema_constraint": {
+        "entity_key_rate": 0.5,
+        "chinese_fields_rate": 0.6667,
+        "avg_field_overlap": 0.2183
+      },
+      "format_following": {
+        "entity_key_rate": 0.4,
+        "chinese_fields_rate": 0.4,
+        "avg_field_overlap": 0.35
+      }
+    }
+  },
+  "qwen_lora": {
+    "total": 40,
+    "entity_key_rate": 0.95,
+    "chinese_fields_rate": 0.925,
+    "avg_field_overlap": 0.49,
+    "by_group": {
+      "extraction": {
+        "entity_key_rate": 1.0,
+        "chinese_fields_rate": 1.0,
+        "avg_field_overlap": 0.3435
+      },
+      "schema_constraint": {
+        "entity_key_rate": 1.0,
+        "chinese_fields_rate": 0.9167,
+        "avg_field_overlap": 0.5347
+      },
+      "format_following": {
+        "entity_key_rate": 0.8,
+        "chinese_fields_rate": 0.8,
+        "avg_field_overlap": 0.7
+      }
+    }
+  }
+}

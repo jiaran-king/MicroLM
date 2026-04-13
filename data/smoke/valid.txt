@@ -1,0 +1,4 @@
+hello valid
+你好 valid
+<|endoftext|>
+

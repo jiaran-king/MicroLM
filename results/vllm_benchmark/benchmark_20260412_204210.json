@@ -1,0 +1,120 @@
+{
+  "benchmark_config": {
+    "base_url": "http://localhost:8000",
+    "timestamp": "2026-04-12 20:40:15",
+    "streaming": false
+  },
+  "single_concurrency": [
+    {
+      "config": "sc_128_64",
+      "input_len": 128,
+      "target_output_len": 64,
+      "status": "ok",
+      "runs": 3,
+      "time_total_s": {
+        "mean": 1.9893,
+        "min": 1.9208,
+        "max": 2.0487,
+        "p95": 2.0487
+      },
+      "throughput_tok_s": {
+        "mean": 32.19,
+        "min": 31.24,
+        "max": 33.32
+      },
+      "prompt_tokens": 100,
+      "completion_tokens_avg": 64.0,
+      "ttft_estimated_s": {
+        "mean": 0.2984
+      }
+    },
+    {
+      "config": "sc_512_128",
+      "input_len": 512,
+      "target_output_len": 128,
+      "status": "ok",
+      "runs": 3,
+      "time_total_s": {
+        "mean": 2.8935,
+        "min": 2.806,
+        "max": 2.9925,
+        "p95": 2.9925
+      },
+      "throughput_tok_s": {
+        "mean": 29.4,
+        "min": 28.4,
+        "max": 30.29
+      },
+      "prompt_tokens": 316,
+      "completion_tokens_avg": 85.0,
+      "ttft_estimated_s": {
+        "mean": 0.434
+      }
+    },
+    {
+      "config": "sc_1024_256",
+      "input_len": 1024,
+      "target_output_len": 256,
+      "status": "ok",
+      "runs": 3,
+      "time_total_s": {
+        "mean": 8.5359,
+        "min": 8.275,
+        "max": 8.753,
+        "p95": 8.753
+      },
+      "throughput_tok_s": {
+        "mean": 30.01,
+        "min": 29.25,
+        "max": 30.94
+      },
+      "prompt_tokens": 600,
+      "completion_tokens_avg": 256.0,
+      "ttft_estimated_s": {
+        "mean": 1.2804
+      }
+    }
+  ],
+  "multi_concurrency": [
+    {
+      "config": "mc_4conc",
+      "concurrency": 4,
+      "input_len": 256,
+      "target_output_len": 128,
+      "status": "ok",
+      "runs": 3,
+      "batch_time_s": {
+        "mean": 5.5768,
+        "min": 5.5165,
+        "max": 5.6341
+      },
+      "throughput_per_request_tok_s": {
+        "mean": 23.02,
+        "min": 22.73,
+        "max": 23.29
+      },
+      "total_requests": 12,
+      "total_errors": 0
+    },
+    {
+      "config": "mc_8conc",
+      "concurrency": 8,
+      "input_len": 256,
+      "target_output_len": 128,
+      "status": "ok",
+      "runs": 3,
+      "batch_time_s": {
+        "mean": 8.3831,
+        "min": 7.6773,
+        "max": 8.7886
+      },
+      "throughput_per_request_tok_s": {
+        "mean": 15.35,
+        "min": 14.57,
+        "max": 16.81
+      },
+      "total_requests": 24,
+      "total_errors": 0
+    }
+  ]
+}

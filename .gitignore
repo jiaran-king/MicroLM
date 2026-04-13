@@ -1,0 +1,38 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Large model weights (downloadable from HuggingFace)
+Qwen2.5-1.5B-Instruct/
+
+# Large training data (17GB+)
+data/pretrain_hq.jsonl
+data/pretrain/
+data/pretrain_clean/
+data/pretrain_clean_v2/
+data/pretrain_quick/
+data/minimind_sft/
+data/processed/
+data/instructie/
+data/sft_candidate/
+
+# Generated outputs / checkpoints
+out/
+outputs/
+
+# Experiment tracking
+wandb/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/

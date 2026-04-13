@@ -1,0 +1,7 @@
+{
+  "dtype": "uint16",
+  "vocab_size": 512,
+  "train_tokens": 4096,
+  "valid_tokens": 1024,
+  "description": "Deterministic smoke-test token arrays for MicroLM pretrain validation."
+}

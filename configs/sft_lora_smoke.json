@@ -1,0 +1,53 @@
+{
+  "name": "sft_lora_smoke",
+  "description": "LoRA SFT smoke test — only trains low-rank adapters.",
+  "tokenizer": {
+    "vocab_path": "outputs/tokenizer_full_clean/vocab.json",
+    "merges_path": "outputs/tokenizer_full_clean/merge.txt",
+    "special_tokens": ["</s>"]
+  },
+  "model": {
+    "vocab_size": 6400,
+    "context_length": 512,
+    "d_model": 512,
+    "num_layers": 8,
+    "num_heads": 8,
+    "d_ff": 1344,
+    "rope_theta": 1000000.0,
+    "use_rms_norm": true,
+    "norm_mode": "pre",
+    "ffn_type": "swiglu"
+  },
+  "lora": {
+    "enabled": true,
+    "r": 8,
+    "alpha": 16.0,
+    "targets": ["q_proj", "k_proj", "v_proj", "output_proj"]
+  },
+  "optimizer": {
+    "lr": 0.00003,
+    "weight_decay": 0.0
+  },
+  "training": {
+    "batch_size": 1,
+    "max_steps": 4,
+    "eval_interval": 2,
+    "save_interval": 2,
+    "device": "cpu",
+    "seed": 42,
+    "out_dir": "outputs/sft_lora_smoke",
+    "init_checkpoint": "outputs/pretrain_full_corpus/ckpt_final.pt",
+    "resume": false
+  },
+  "data": {
+    "train_data_path": "data/sft_smoke/train.jsonl",
+    "valid_data_path": "data/sft_smoke/valid.jsonl",
+    "system_prompt_ratio": 0.0,
+    "eos_token": "</s>"
+  },
+  "logging": {
+    "wandb_project": "micro-lm",
+    "run_name": "sft_lora_smoke",
+    "mode": "disabled"
+  }
+}

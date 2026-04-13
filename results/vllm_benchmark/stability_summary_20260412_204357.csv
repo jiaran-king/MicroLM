@@ -1,0 +1,3 @@
+round,mode,total,parse_rate,strict_rate,alias_strict_rate,extraction_P,extraction_S,extraction_A,schema_P,schema_S,schema_A,format_P,format_S,format_A,avg_latency_s
+Round 1: Normal Chat Completion,normal,40,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.143
+Round 2: Constrained (response_format=json_object),constrained,40,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.819
