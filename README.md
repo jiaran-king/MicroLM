@@ -1,28 +1,12 @@
 # MicroLM
 
-<div align="center" style="max-width: 800px; margin: 0 auto;">
+轻量级 LLM 训练、微调、评测与部署全链路项目。
 
-<p style="font-size: 14px; color: #57606a; margin-bottom: 12px;">
-  轻量级 LLM 训练、微调、评测与部署全链路项目
-</p>
+## 从零搭建一个能训练、能微调、能推理的完整 LLM 链路
 
-<p style="font-size: 28px; font-weight: 600; line-height: 1.4; margin: 0 0 8px 0;">
-  从零搭建一个能训练、能微调、能推理的完整 LLM 链路
-</p>
+涵盖 tokenizer 训练、语料处理、pretrain、SFT、LoRA、推理优化、评测与部署，每一个环节亲手实现。
 
-<p style="font-size: 17px; color: #57606a; line-height: 1.6; margin: 0 0 20px 0;">
-  tokenizer 训练 · 语料处理 · pretrain · SFT · LoRA · 推理优化 · 评测 · 部署<br>
-  每一个环节亲手实现
-</p>
-
-<p style="font-size: 14px; margin: 0;">
-  <a href="#自研链路--31m-参数">自研链路</a> &nbsp;·&nbsp;
-  <a href="#迁移链路--qwen25-15b">Qwen 迁移</a> &nbsp;·&nbsp;
-  <a href="#快速开始">快速开始</a> &nbsp;·&nbsp;
-  <a href="#详细文档">文档</a>
-</p>
-
-</div>
+[自研链路](#自研链路--31m-参数) · [Qwen 迁移](#迁移链路--qwen25-15b) · [快速开始](#快速开始) · [文档](#详细文档)
 
 ---
 
@@ -97,7 +81,7 @@ flowchart TB
 
 | 文档 | 内容 |
 |:---:|:---:|
-| [01-项目总览](Readme/项目全景图/01-项目总览.md) | 双轨架构、里程碑完成情况、核心量化成果一览 |
+| [01-项目总览](Readme/项目全景图/01-项目总览.md) | 双轨架构、核心量化成果一览 |
 | [02-自研 MicroLM 主线](Readme/项目全景图/02-自研%20MicroLM%20主线.md) | 数据处理 / Tokenizer / 模型设计 / Pretrain / SFT / LoRA / 能力边界 |
 | [03-推理与系统能力增强](Readme/项目全景图/03-推理与系统能力增强.md) | 文本生成流程 / KV Cache 优化与 Benchmark / chat.py 多轮对话 |
 | [04-Qwen 迁移与结构化输出](Readme/项目全景图/04-Qwen%20迁移与结构化输出主线.md) | 迁移动机 / InstructIE 数据 pipeline / Qwen LoRA 微调 / 导出部署 |
