@@ -1,26 +1,28 @@
 # MicroLM
 
-<p align="center">
-  <sub><strong>轻量级 LLM 训练、微调、评测与部署全链路项目</strong></sub>
+<div align="center" style="max-width: 800px; margin: 0 auto;">
+
+<p style="font-size: 14px; color: #57606a; margin-bottom: 12px;">
+  轻量级 LLM 训练、微调、评测与部署全链路项目
 </p>
 
-<p align="center">
-  <h2 align="center">从零搭建一个能训练、能微调、能推理的<br>完整 LLM 链路</h2>
+<p style="font-size: 28px; font-weight: 600; line-height: 1.4; margin: 0 0 8px 0;">
+  从零搭建一个能训练、能微调、能推理的完整 LLM 链路
 </p>
 
-<p align="center">
-  tokenizer 训练 · 语料处理 · pretrain · SFT · LoRA<br>
-  推理优化 · 评测 · 部署，每一个环节亲手实现
+<p style="font-size: 17px; color: #57606a; line-height: 1.6; margin: 0 0 20px 0;">
+  tokenizer 训练 · 语料处理 · pretrain · SFT · LoRA · 推理优化 · 评测 · 部署<br>
+  每一个环节亲手实现
 </p>
 
-<br>
-
-<p align="center">
-  <a href="#自研链路--31m-参数"><strong>自研链路</strong></a> &nbsp;·&nbsp;
-  <a href="#迁移链路--qwen25-15b"><strong>Qwen 迁移</strong></a> &nbsp;·&nbsp;
-  <a href="#快速开始"><strong>快速开始</strong></a> &nbsp;·&nbsp;
-  <a href="#详细文档"><strong>文档</strong></a>
+<p style="font-size: 14px; margin: 0;">
+  <a href="#自研链路--31m-参数">自研链路</a> &nbsp;·&nbsp;
+  <a href="#迁移链路--qwen25-15b">Qwen 迁移</a> &nbsp;·&nbsp;
+  <a href="#快速开始">快速开始</a> &nbsp;·&nbsp;
+  <a href="#详细文档">文档</a>
 </p>
+
+</div>
 
 ---
 
