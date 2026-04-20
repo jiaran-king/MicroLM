@@ -18,17 +18,17 @@ section: self-developed-mainline
 
 ### 核心设计 / 核心流程
 
-**语料处理管线**——`prepare_pretrain_jsonl.py` 对 `data/pretrain_hq.jsonl`（约 1.6GB / 141 万条）执行清洗与切分：
+**语料处理管线**——`prepare_pretrain_jsonl.py` 对 `data/pretrain_t2t_mini.jsonl`（约 1.24GB / 127 万条）执行清洗与切分：
 
-| 清洗规则 | CLI 控制 | 在 141 万条上的效果 |
+| 清洗规则 | CLI 控制 | 在 `pretrain_t2t_mini.jsonl` 上的效果 |
 |----------|----------|---------------------|
 | 控制字符清理 | 默认开启 | 移除 U+0000-U+001F（保留 \t\n\r）|
-| HTML 标签清理 | `--clean-html` | 命中 11,427 条 |
-| 空白压缩 | `--compress-whitespace` | 命中 55,681 条 |
-| 长度过滤 | `--min/max-length` | 过滤 36 条 |
-| 精确去重 | `--dedup` | 去重 821 条 |
+| HTML 标签清理 | `--clean-html` | 命中 7,625 条 |
+| 空白压缩 | `--compress-whitespace` | 命中 59,393 条 |
+| 长度过滤 | `--min/max-length` | 过滤 5,932 条 |
+| 精确去重 | `--dedup` | 去重 255 条 |
 
-整体过滤率仅 0.06%，但规范化了 4.7% 的文档。所有规则通过 CLI 参数控制，向后兼容——不加参数时行为与初始版本一致。
+整体过滤率约 0.49%，但保留了 126.4 万条可用文档。所有规则通过 CLI 参数控制，便于在不同版本的 MiniMind 语料上复用。
 
 切分阶段使用 **SHA1 哈希确定性划分** train/valid，避免随机切分导致的分布偏移。文档之间插入 EOS 分隔符，让模型在 pretrain 阶段就能感知文档边界。
 

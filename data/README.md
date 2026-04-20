@@ -19,54 +19,84 @@
 
 ### 1.1 预训练语料
 
-- **文件**：`pretrain_hq.jsonl`
+- **当前文件**：`pretrain_t2t_mini.jsonl`
+- **旧版对应物**：`pretrain_hq.jsonl`（当前官方数据集已不再主推该文件名）
 - **格式**：每行 `{"text": "..."}`，中文对话/指令/知识文本
-- **原始规模**：**1,413,103 条**（~1.6 GB）
-- **来源**：[匠数科技](https://github.com/jingyaogong/minimind) 大模型数据集中文部分，经 MiniMind 项目清洗为 `pretrain_hq.jsonl`
+- **原始规模**：**1,270,238 条**（下载文件约 **1.24 GB**）
+- **来源**：HuggingFace — [`jingyaogong/minimind_dataset`](https://huggingface.co/datasets/jingyaogong/minimind_dataset)
 - **下载方式**：
 
 ```bash
-# 方式 A — ModelScope（推荐，国内速度快）
-pip install modelscope
-modelscope download --dataset gongjy/minimind_dataset pretrain_hq.jsonl
+pip install huggingface_hub
 
-# 方式 B — HuggingFace
-pip install datasets
-# 访问 https://huggingface.co/datasets/jingyaogong/minimind_dataset 下载
+mkdir -p data
 
-# 方式 C — GitHub（含完整项目与数据）
-git clone https://github.com/xuyongfu/minimind-20250320.git
+python - <<'PY'
+from huggingface_hub import hf_hub_download
+
+hf_hub_download(
+    repo_id="jingyaogong/minimind_dataset",
+    repo_type="dataset",
+    filename="pretrain_t2t_mini.jsonl",
+    local_dir="data",
+)
+PY
 ```
 
-SFT 对话数据（`sft_t2t_mini.jsonl`）在同一个数据集中，一并下载即可。
+> 项目已在 **2026-04-20** 使用 `pretrain_t2t_mini.jsonl` 完成
+> `prepare_pretrain_jsonl.py` → tokenizer 训练 → tokenize → pretrain smoke
+> 的兼容性验证。
 
 - **处理流程**（`scripts/prepare_pretrain_jsonl.py`）：
 
 ```
-pretrain_hq.jsonl (1,413,103 条)
+pretrain_t2t_mini.jsonl (1,270,238 条)
   → 控制字符清理 + HTML 标签清理 + 空白压缩
   → 长度过滤 + SHA256 精确去重
   → SHA1 哈希确定性划分 train/valid (99:1)
   → 文档间插入 EOS 分隔符
   ↓
-pretrain_clean_v2/
-  ├── train.txt      (1,398,265 条)
-  ├── valid.txt      (13,981 条)
+pretrain_clean/
+  ├── train.txt      (1,251,547 条)
+  ├── valid.txt      (12,504 条)
   └── tokenizer_corpus.txt
 ```
 
 清洗统计：
-- HTML 标签清理：11,427 条（0.81%）
-- 空白压缩：55,681 条（3.94%）
-- 精确去重：821 条（0.058%）
-- 总过滤率：0.06%（整体质量已较高，清洗主要起规范化作用）
+- HTML 标签清理：7,625 条（0.60%）
+- 空白压缩：59,393 条（4.68%）
+- 精确去重：255 条（0.02%）
+- 总过滤率：0.49%
 
 ### 1.2 SFT 对话数据
 
 - **目录**：`minimind_sft/`
 - **文件**：`gongjy/minimind_dataset/sft_t2t_mini.jsonl`
 - **用途**：MicroLM SFT 全参微调 / LoRA 微调的训练对话数据
+- **下载方式**：
+
+```bash
+pip install huggingface_hub
+
+mkdir -p data/minimind_sft/gongjy/minimind_dataset
+
+python - <<'PY'
+from huggingface_hub import hf_hub_download
+
+hf_hub_download(
+    repo_id="jingyaogong/minimind_dataset",
+    repo_type="dataset",
+    filename="sft_t2t_mini.jsonl",
+    local_dir="data/minimind_sft/gongjy/minimind_dataset",
+)
+PY
+```
+
 - **处理**：经 `sft.py` 的 `SFTDataset` 渲染为 chat prompt，构建 assistant-only masked loss
+
+> 当前官方数据集中未提供单独的 `sft_t2t_valid.jsonl`。
+> 项目默认使用 `sft_t2t_mini.jsonl` 作为 train/valid 兼容路径，
+> 或由使用者自行本地切分 valid。
 
 ---
 
@@ -127,8 +157,8 @@ sft_candidate/
 
 ```
 data/
-├── pretrain_hq.jsonl              # MiniMind 预训练原始语料 (~141万条)
-├── pretrain_clean_v2/             # 清洗后的预训练文本 (train.txt / valid.txt)
+├── pretrain_t2t_mini.jsonl        # MiniMind 当前预训练原始语料 (~127万条)
+├── pretrain_clean/                # 清洗后的预训练文本 (train.txt / valid.txt)
 │   └── tokenized_full/            # BPE 编码后的 token IDs (.npy memmap)
 ├── minimind_sft/                  # MiniMind SFT 对话数据
 ├── instructie/                    # InstructIE 原始数据集
@@ -147,9 +177,7 @@ data/
 
 - **MiniMind**:
   - 项目主页：[jingyaogong/minimind](https://github.com/jingyaogong/minimind)
-  - 数据集（ModelScope）：[gongjy/minimind_dataset](https://www.modelscope.cn/datasets/gongjy/minimind_dataset)
   - 数据集（HuggingFace）：[jingyaogong/minimind_dataset](https://huggingface.co/datasets/jingyaogong/minimind_dataset)
-  - 含数据说明的 fork：[xuyongfu/minimind-20250320](https://github.com/xuyongfu/minimind-20250320)
 
 - **InstructIE**:
   - Wang, Y. et al. *InstructIE: A Bilingual Instruction-based Information Extraction Dataset*

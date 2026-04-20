@@ -11,14 +11,19 @@ Qwen2.5-1.5B-Instruct/
 
 # Large training data (17GB+)
 data/pretrain_hq.jsonl
+data/pretrain_hq_legacy.jsonl
+data/pretrain_t2t_mini.jsonl
 data/pretrain/
 data/pretrain_clean/
 data/pretrain_clean_v2/
 data/pretrain_quick/
+data/pretrain_t2t_mini_candidate/
+data/pretrain_t2t_mini_smoke/
 data/minimind_sft/
 data/processed/
 data/instructie/
 data/sft_candidate/
+data/sft_t2t_mini_smoke_candidate/
 
 # Generated outputs / checkpoints
 out/
